@@ -22,7 +22,7 @@ const Footer = ({ themeSettings }) => {
                                 {email && <a href={`mailto:${email}`}>{email}</a>}
                             </div>
                         </div>
-                        <div className='col-md-6 text-end d-flex align-items-center justify-content-end gap-2'>
+                        <div className='col-md-6 text-end d-flex align-items-center justify-content-md-end mt-4 mt-md-0 gap-2'>
                             {linkedinUrl && <Link href={linkedinUrl} target='_blank'>
                                 <LinkedIn />
                             </Link>}

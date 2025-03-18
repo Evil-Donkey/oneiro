@@ -12,7 +12,9 @@
   
   --font-size-p: 1rem;
   --font-size-h1: 3.875rem;
+  --font-size-h1-mobile: 2.5rem;
   --font-size-h2: 0.75rem;
+  --font-size-h2-mobile: 0.5rem;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -36,6 +38,9 @@ body {
   letter-spacing: 0.063rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  @media (max-width: 767px) {
+    letter-spacing: 0;
+  }
 }
 
 * {
@@ -54,6 +59,10 @@ h1 {
   line-height: 3.875rem;
   letter-spacing: 0.03125rem;
   margin-bottom: 1.5rem;
+  @media (max-width: 767px) {
+    font-size: var(--font-size-h1-mobile);
+    line-height: 3rem;
+  }
 }
 
 h2 {
@@ -62,6 +71,9 @@ h2 {
   line-height: 1.75rem;
   letter-spacing: 0.075rem;
   text-transform: uppercase;
+  @media (max-width: 767px) {
+    font-size: var(--font-size-h2-mobile);
+  }
 }
 
 p {
