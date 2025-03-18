@@ -1,4 +1,5 @@
 import { Inter, Duru_Sans } from "next/font/google";
+import Overlay from "../components/Overlay";
 import Header from "../components/Header";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./globals.css";
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${duruSans.variable}`}>
+        <Overlay />
         <Header />
         {children}
       </body>

@@ -22,6 +22,7 @@
     background-size: 200%;
     border: none;
     min-width: 170px;
+    white-space: nowrap;
     &:hover {
         animation: changeGradientAnimation 2s linear infinite;
     }

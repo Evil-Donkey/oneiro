@@ -1,0 +1,14 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--colour-blue-01);
+    z-index: 1001;
+    transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform-origin: center top;
+    &.loaded {
+        transform: scaleY(0);
+    }
+}

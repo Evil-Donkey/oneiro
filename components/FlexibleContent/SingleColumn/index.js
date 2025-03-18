@@ -5,6 +5,7 @@ import styles from "./SingleColumn.module.scss";
 import Image from "next/image";
 import useLazyLoad from "../../../hooks/useLazyLoad";
 import LazyItem from "../../LazyItem";
+import SplitTextWrapper from '../../SplitText';
 import Shine from "@/components/Shine";
 
 const SingleColumn = ({ data, index }) => {
@@ -56,7 +57,7 @@ const SingleColumn = ({ data, index }) => {
                                 <img src={icon.mediaItemUrl} alt={icon.altText} />
                             </LazyItem>
                         </div>}
-                        {heading2 && <h2><LazyItem>{heading2}</LazyItem></h2>}
+                        {heading2 && <h2>{heading2}</h2>}
                         {heading1 && <h1><LazyItem>{heading1}</LazyItem></h1>}
                         {copy && <LazyItem><div className={list ? styles.copyWithList : ''} dangerouslySetInnerHTML={{ __html: copy }} /></LazyItem>}
                     </div>
@@ -77,7 +78,7 @@ const SingleColumn = ({ data, index }) => {
                 </div>}
             </div>
 
-            <Shine left={index % 2 === 0 ? true : false} parentRef={singleColumnRef} />
+            <Shine left={index % 2 === 0} parentRef={singleColumnRef} />
         </div>
     )
 }

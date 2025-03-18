@@ -38,7 +38,10 @@ body {
   letter-spacing: 0.063rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  @media (max-width: 767px) {
+}
+
+@media (max-width: 767px) {
+  body {
     letter-spacing: 0;
   }
 }
