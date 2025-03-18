@@ -1,0 +1,80 @@
+.singleColumn {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    &.fullHeight {
+        min-height: 100vh;
+    }
+    &.darkBlue {
+        h2 {
+            color: var(--colour-blue-01);
+        }
+    }
+    &.backgroundImageTopRight {
+        background-position: top right;
+        background-size: 60% auto;
+        background-repeat: no-repeat;
+        @media (max-width: 767px) {
+            background-image: none !important;
+        }
+    }
+    h2 {
+        color: var(--colour-blue-00);
+    }
+}
+
+.singleColumnCentred {
+    h1 {
+        font-size: 2.5rem;
+        line-height: 3.125rem;
+    }
+}
+
+.singleColumnList {
+    li {
+        > div {
+            position: relative;
+            padding-left: 40px;
+            &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 5px;
+                width: 30px;
+                height: 30px;
+                background-image: url('/tick.svg');
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            h3 {
+                font-size: 1rem;
+                line-height: 1.3125rem;
+                font-weight: 700;
+                margin: 0;
+            }
+        }
+    }
+}
+
+.copyWithList {
+    @media (min-width: 1200px) {
+        padding-right: 7rem;
+    }
+}
+
+.backgroundVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    object-fit: cover;
+    overflow: hidden;
+}

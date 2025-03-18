@@ -1,0 +1,41 @@
+.shine {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    .shineLine1,
+    .shineLine2 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        backface-visibility: visible;
+        mix-blend-mode: screen;
+        transform: translate3d(0,0,0);
+        height: 16px;
+        width: auto;
+        z-index: 1;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    .shineLine2 {
+        left: auto;
+        right: 0;
+    }
+    .shineMain {
+        position: absolute;
+        bottom: -70px;
+        backface-visibility: visible;
+        mix-blend-mode: screen;
+        transform: translate3d(0,0,0);
+        width: 150px;
+        height: auto;
+        z-index: 1;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
