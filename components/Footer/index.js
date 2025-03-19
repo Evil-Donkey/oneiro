@@ -40,9 +40,9 @@ const Footer = ({ themeSettings }) => {
                             <small>&copy; Oneiro Solutions. All Rights Reserved.</small>
                         </div>
                         <div className='col-md-auto d-flex align-items-center gap-3 justify-content-center justify-content-md-end mb-3 mb-md-0'>
-                            <small><a href='/terms-of-use'>Terms of use</a></small>
-                            <small><a href='/privacy-policy'>Privacy policy</a></small>
-                            <small><a href='/anti-slavery-policy'>Anti-slavery policy</a></small>
+                            <small><Link href='/terms-of-use'>Terms of use</Link></small>
+                            <small><Link href='/privacy-policy'>Privacy policy</Link></small>
+                            <small><Link href='/anti-slavery-policy'>Anti-slavery policy</Link></small>
                         </div>
                     </div>
                 </div>
