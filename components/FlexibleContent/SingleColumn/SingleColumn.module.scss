@@ -43,8 +43,12 @@
 
 .singleColumnCentred {
     h1 {
-        font-size: 2.5rem;
-        line-height: 3.125rem;
+        font-size: 2.1rem;
+        line-height: 2.6rem;
+        @media (min-width: 768px) {
+            font-size: 2.5rem;
+            line-height: 3.125rem;
+        }
     }
 }
 

@@ -3,12 +3,10 @@
 import fetchAPI from '../../lib/api';
 import styles from './Legal.module.scss';
 import Header from '../../components/Header';
-import ContactForm from "@/components/ContactForm";
+import PageFlexibleContent from '../../components/FlexibleContent';
 
 export async function generateMetadata({ params }) {
   const { legal } = await params || {};
-
-  console.log(legal);
 
   if (!legal) {
     return {
@@ -54,6 +52,63 @@ export default async function LegalPage({ params }) {
     return <h1>404 - Page Not Found</h1>;
   }
 
+  const pageData = await fetchAPI(`
+    query getHomePage {
+      page(id: "${legal}", idType: URI) {
+        content(format: RENDERED)
+        title(format: RENDERED)
+        flexibleContent {
+          flexibleContent {
+            ... on Page_Flexiblecontent_FlexibleContent_SingleColumn {
+              fieldGroupName
+              backgroundImage {
+                altText
+                mediaItemUrl
+                mediaDetails {
+                  height
+                  width
+                }
+              }
+              backgroundImageTopRight
+              backgroundVideoDesktop {
+                mediaItemUrl
+              }
+              backgroundVideoMobile {
+                mediaItemUrl
+              }
+              centred
+              copy
+              darkBlue
+              fullHeight
+              heading1
+              heading2
+              icon {
+                altText
+                mediaItemUrl
+                mediaDetails {
+                  height
+                  width
+                }
+              }
+              list {
+                copy
+                heading
+              }
+            }
+            ... on Page_Flexiblecontent_FlexibleContent_RequestADemo {
+              copy
+              fieldGroupName
+              heading1
+              heading2
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const flexibleContent = pageData?.page?.flexibleContent?.flexibleContent;
+
   return (
     <>
       <Header themeColor="#0F0D42" />
@@ -65,13 +120,11 @@ export default async function LegalPage({ params }) {
             </div>
             <div className="col-lg-5">
               <div dangerouslySetInnerHTML={{ __html: data.page.content }} />
-              <div className="mt-5" id="request-demo">
-                <ContactForm />
-              </div>
             </div>
           </div>
         </div>
       </div>
+      <PageFlexibleContent data={flexibleContent} />
     </>
   );
 }

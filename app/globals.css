@@ -12,7 +12,7 @@
   
   --font-size-p: 1rem;
   --font-size-h1: 3.875rem;
-  --font-size-h1-mobile: 2.5rem;
+  --font-size-h1-mobile: 2.1rem;
   --font-size-h2: 0.75rem;
   --font-size-h2-mobile: 0.65rem;
 }
@@ -65,7 +65,7 @@ h1 {
   font-family: var(--font-duru-sans);
   @media (max-width: 767px) {
     font-size: var(--font-size-h1-mobile);
-    line-height: 3rem;
+    line-height: 2.6rem;
   }
 }
 
