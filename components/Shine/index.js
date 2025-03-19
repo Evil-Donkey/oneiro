@@ -26,7 +26,7 @@ const Shine = ({ left = false, parentRef }) => {
         shineRef.current = shineRef.current.filter(el => el != null);
 
         // const direction = left ? -500 : 500;
-        const directionLines = left ? 300 : -300;
+        const directionLines = left ? 500 : -500;
 
         shineRef.current.forEach((shineEl) => {
             gsap.fromTo(
@@ -57,14 +57,14 @@ const Shine = ({ left = false, parentRef }) => {
         linesRef.current.forEach((lineEl) => {
             gsap.fromTo(
                 lineEl,
-                { x: directionLines },
+                { xPercent: directionLines },
                 {
-                    x: 0,
+                    xPercent: 0,
                     ease: "power2.out",
                     scrollTrigger: {
                         trigger: parentRef.current,
                         start: "bottom 100%",
-                        end: "bottom 0%",
+                        end: "bottom -50%",
                         scrub: 1,
                         toggleActions: "play none none reverse",
                     },
@@ -81,20 +81,21 @@ const Shine = ({ left = false, parentRef }) => {
         <div className={styles.shine} style={{ left: left ? '10%' : 'auto', right: left ? 'auto' : '10%' }}>
             <div 
             className={styles.shineLine1} 
+            style={{ left: left ? '-10%' : 'auto', right: left ? 'auto' : '-10%' }}
             ref={(el) => {
             if (el && !linesRef.current.includes(el)) {
                 linesRef.current.push(el);  // Push new element to the array
             }}}>
                 <Image src={shineLine} alt="Shine Line" />
             </div>
-            <div 
+            {/* <div 
             className={styles.shineLine2} 
             ref={(el) => {
             if (el && !linesRef.current.includes(el)) {
                 linesRef.current.push(el);  // Push new element to the array
             }}}>
                 <Image src={shineLine} alt="Shine Line" />
-            </div>
+            </div> */}
             <div 
                 className={styles.shineMain} 
                 style={{ left: left ? '10%' : 'auto', right: left ? 'auto' : '10%' }}
