@@ -29,6 +29,9 @@
     svg {
         width: 140px;
         height: auto;
+        g {
+            fill: var(--colour-white-00);
+        }
     }
 }
 
