@@ -34,8 +34,8 @@ const SingleColumn = ({ data, index }) => {
         >
             {(backgroundVideoDesktop || backgroundVideoMobile) && (
                 <div className={styles.backgroundVideo}>
-                    {backgroundVideoDesktop && <video src={backgroundVideoDesktop.mediaItemUrl} autoPlay muted loop className={backgroundVideoMobile ? `d-none d-md-block` : ''} />}
-                    {backgroundVideoMobile && <video src={backgroundVideoMobile.mediaItemUrl} autoPlay muted loop className={backgroundVideoDesktop ? `d-block d-md-none` : ''} />}
+                    {backgroundVideoDesktop && <video src={backgroundVideoDesktop.mediaItemUrl} autoPlay muted loop playsinline className={backgroundVideoMobile ? `d-none d-md-block` : ''} />}
+                    {backgroundVideoMobile && <video src={backgroundVideoMobile.mediaItemUrl} autoPlay muted loop playsinline className={backgroundVideoDesktop ? `d-block d-md-none` : ''} />}
                 </div>
             )}
             

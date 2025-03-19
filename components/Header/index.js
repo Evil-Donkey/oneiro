@@ -53,7 +53,7 @@ const Header = ({ themeColor = '#ffffff' }) => {
                             <Logo themeColor={themeColor} />
                         </Link>
                     </div>
-                    <div className='col text-end pt-2 pt-md-0 d-none d-md-block'>
+                    <div className={`col text-end pt-2 pt-md-0 ${styles.buttonContainer}`}>
                         <Button href="#request-demo">Request a demo</Button>
                     </div>
                 </div>

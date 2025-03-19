@@ -3,6 +3,7 @@
 import fetchAPI from '../../lib/api';
 import styles from './Legal.module.scss';
 import Header from '../../components/Header';
+import ContactForm from "@/components/ContactForm";
 
 export async function generateMetadata({ params }) {
   const { legal } = await params || {};
@@ -64,6 +65,9 @@ export default async function LegalPage({ params }) {
             </div>
             <div className="col-lg-5">
               <div dangerouslySetInnerHTML={{ __html: data.page.content }} />
+              <div className="mt-5" id="request-demo">
+                <ContactForm />
+              </div>
             </div>
           </div>
         </div>

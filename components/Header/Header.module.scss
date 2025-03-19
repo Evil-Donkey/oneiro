@@ -33,6 +33,17 @@
             fill: var(--colour-white-00);
         }
     }
+    @media screen and (max-width: 767px) {
+        .buttonContainer {
+            display: block;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .buttonContainer {
+        display: none;
+    }
 }
 
 .headerContainer {
