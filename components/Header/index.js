@@ -6,7 +6,7 @@ import Logo from '../Logo'
 import Button from '../Button'
 import styles from './Header.module.scss'
 
-const Header = () => {
+const Header = ({ themeColor = '#ffffff' }) => {
 
     const [isScrollingUp, setIsScrollingUp] = useState(true);
     const [isHeaderScrolled, setIsHeaderScrolled] = useState(false);
@@ -50,10 +50,10 @@ const Header = () => {
                 <div className="row align-items-md-center justify-content-between">
                     <div className={`col ${styles.logoContainer}`}>
                         <Link href="/">
-                            <Logo />
+                            <Logo themeColor={themeColor} />
                         </Link>
                     </div>
-                    <div className='col text-end'>
+                    <div className='col text-end pt-2 pt-md-0 d-none d-md-block'>
                         <Button href="#request-demo">Request a demo</Button>
                     </div>
                 </div>

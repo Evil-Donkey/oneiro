@@ -25,15 +25,14 @@ const Shine = ({ left = false, parentRef }) => {
         // Clear the array of refs before applying animations
         shineRef.current = shineRef.current.filter(el => el != null);
 
-        const direction = left ? -500 : 500;
+        // const direction = left ? -500 : 500;
         const directionLines = left ? 300 : -300;
 
         shineRef.current.forEach((shineEl) => {
             gsap.fromTo(
                 shineEl,
-                { x: -direction, autoAlpha: 0 },
+                { autoAlpha: 0 },
                 {
-                    x: 0,
                     autoAlpha: 1,
                     ease: "power2.out",
                     scrollTrigger: {
@@ -42,6 +41,14 @@ const Shine = ({ left = false, parentRef }) => {
                         end: "bottom 0%",
                         scrub: 1,
                         toggleActions: "play none none reverse",
+                        onUpdate: (self) => {
+                            const progress = self.progress;
+                            if (progress < 0.5) {
+                                gsap.to(shineEl, { autoAlpha: progress * 2 });
+                            } else {
+                                gsap.to(shineEl, { autoAlpha: (1 - progress) * 2 });
+                            }
+                        },
                     },
                 }
             );

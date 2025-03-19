@@ -35,14 +35,14 @@ const Footer = ({ themeSettings }) => {
             </div>
             <div className={styles.footerBottom}>
                 <div className='container py-4'>
-                    <div className='row justify-content-between'>
-                        <div className='col-md-auto'>
+                    <div className='row justify-content-between text-center text-md-start'>
+                        <div className='col-md-auto mb-3 mb-md-0'>
                             <small>&copy; Oneiro Solutions. All Rights Reserved.</small>
                         </div>
-                        <div className='col-md-auto d-flex align-items-center gap-2 justify-content-md-end'>
-                            <small><a href='#'>Terms of use</a></small>
-                            <small><a href='#'>Privacy policy</a></small>
-                            <small><a href='#'>Anti-slavery policy</a></small>
+                        <div className='col-md-auto d-flex align-items-center gap-3 justify-content-center justify-content-md-end mb-3 mb-md-0'>
+                            <small><a href='/terms-of-use'>Terms of use</a></small>
+                            <small><a href='/privacy-policy'>Privacy policy</a></small>
+                            <small><a href='/anti-slavery-policy'>Anti-slavery policy</a></small>
                         </div>
                     </div>
                 </div>

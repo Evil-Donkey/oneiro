@@ -5,9 +5,8 @@ import styles from "./SingleColumn.module.scss";
 import Image from "next/image";
 import useLazyLoad from "../../../hooks/useLazyLoad";
 import LazyItem from "../../LazyItem";
-import SplitTextWrapper from '../../SplitText';
 import Shine from "@/components/Shine";
-
+import Button from "@/components/Button";
 const SingleColumn = ({ data, index }) => {
     useLazyLoad();
     const singleColumnRef = useRef(null);
@@ -30,7 +29,7 @@ const SingleColumn = ({ data, index }) => {
     return (
         <div 
         ref={singleColumnRef}
-        className={`${styles.singleColumn} ${fullHeight ? styles.fullHeight : ''} ${darkBlue ? styles.darkBlue : ''} ${backgroundImageTopRight ? styles.backgroundImageTopRight : ''}`} 
+        className={`${styles.singleColumn} ${fullHeight ? styles.fullHeight : ''} ${darkBlue ? styles.darkBlue : ''} ${backgroundImageTopRight ? styles.backgroundImageTopRight : ''} ${styles.singleColumn + index}`} 
         style={{ backgroundImage: backgroundImage ? `url(${backgroundImage.mediaItemUrl})` : 'none' }}
         >
             {(backgroundVideoDesktop || backgroundVideoMobile) && (
@@ -40,14 +39,14 @@ const SingleColumn = ({ data, index }) => {
                 </div>
             )}
             
-            <div className='container position-relative'>
+            <div className='container position-relative px-4 px-md-0'>
                 <div className={`row ${centred ? 'justify-content-center text-center ' + styles.singleColumnCentred : ''}`}>
-                    <div className={`col-md-9 col-lg-7 ${!centred ? 'col-xl-6' : ''}`}>
+                    <div className={`col-md-9 col-xl-8 ${!centred ? 'col-xxl-7 pe-xl-5' : ''}`}>
 
                         {backgroundImageTopRight && backgroundImage && 
                             <div className='d-md-none'>
                                 <LazyItem>
-                                    <Image className='w-100 h-auto' src={backgroundImage.mediaItemUrl} alt={backgroundImage.altText} width={backgroundImage.mediaDetails.width} height={backgroundImage.mediaDetails.height} />
+                                    <Image className={`w-100 h-auto ${styles.mobileImage}`} src={backgroundImage.mediaItemUrl} alt={backgroundImage.altText} width={backgroundImage.mediaDetails.width} height={backgroundImage.mediaDetails.height} />
                                 </LazyItem>
                             </div>
                         }
@@ -57,9 +56,10 @@ const SingleColumn = ({ data, index }) => {
                                 <img src={icon.mediaItemUrl} alt={icon.altText} />
                             </LazyItem>
                         </div>}
-                        {heading2 && <h2>{heading2}</h2>}
+                        {heading2 && <h2><LazyItem>{heading2}</LazyItem></h2>}
                         {heading1 && <h1><LazyItem>{heading1}</LazyItem></h1>}
-                        {copy && <LazyItem><div className={list ? styles.copyWithList : ''} dangerouslySetInnerHTML={{ __html: copy }} /></LazyItem>}
+                        {copy && <LazyItem><div className={`${list ? styles.copyWithList : ''} ${!centred ? styles.addPadding : ''}`} dangerouslySetInnerHTML={{ __html: copy }} /></LazyItem>}
+                        {index === 0 && <div className='mt-4 d-md-none'><LazyItem><Button href="#request-demo">Request a demo</Button></LazyItem></div>}
                     </div>
                 </div>
                 {list && <div className='row mt-5'>

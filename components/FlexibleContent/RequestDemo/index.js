@@ -16,7 +16,7 @@ const RequestDemo = ({ data }) => {
 
     return (
         <div className={styles.requestDemo} id="request-demo">
-            <div className='container'>
+            <div className='container px-4 px-md-0'>
                 <div className='row'>
                     <div className='col-md-6'>
                         {heading2 && <LazyItem><h2>{heading2}</h2></LazyItem>}

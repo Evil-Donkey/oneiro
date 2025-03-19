@@ -1,8 +1,7 @@
 import fetchAPI from '../lib/api'
 import generateMetadata from '../lib/generateMetadata'
 import PageFlexibleContent from '../components/FlexibleContent'
-import Footer from '../components/Footer'
-
+import Header from '../components/Header'
 generateMetadata("9");
 
 export default async function Page() {
@@ -62,27 +61,12 @@ export default async function Page() {
     }
   `);
 
-  const dataOptions = await fetchAPI(`
-    query ThemeSettings {
-      acfOptionsThemeSettings {
-        themeSettings {
-          email
-          address
-          linkedinUrl
-          xUrl
-        }
-      }
-    }
-  `);
-
   const flexibleContent = data?.page?.flexibleContent?.flexibleContent;
-
-  const themeSettings = dataOptions?.acfOptionsThemeSettings?.themeSettings;
 
   return (
     <>
+      <Header />
       <PageFlexibleContent data={flexibleContent} />
-      <Footer themeSettings={themeSettings} />
     </>
   )
 };

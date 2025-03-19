@@ -2,10 +2,33 @@
     background-color: var(--colour-blue-02);
     display: inline-block;
     width: 100%;
+    a {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
 
 .footerBottom {
     background-color: var(--colour-black-00);
     display: inline-block;
     width: 100%;
+    small {
+        position: relative;
+        &:after {
+            content: '|';
+            position: absolute;
+            right: -10px;
+        }
+        &:last-child {
+            &:after {
+                display: none;
+            }
+        }
+    }
+    a {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }

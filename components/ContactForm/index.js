@@ -100,7 +100,7 @@ const ContactForm = () => {
                 <Button submit>Submit</Button>
             </div>
 
-            <div className="col-12 d-flex flex-column gap-2">
+            <div className="col-12 d-flex flex-column gap-2 mt-5 mt-md-0">
                 {success && <p>Form submitted successfully!</p>}
                 {error && <p>{error}</p>}
             </div>

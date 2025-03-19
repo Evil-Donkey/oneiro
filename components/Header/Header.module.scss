@@ -12,15 +12,23 @@
     // @media screen and (min-width: 768px) {
     //     transform: translateY(-40px);
     // }
-    .headerContainer {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-    }
+    // .headerContainer {
+    //     padding-top: 1rem;
+    //     padding-bottom: 1rem;
+    // }
 }
 
 .headerScrolled {
+    .headerContainer {
+        padding-top: 1em;
+        padding-bottom: 1rem;
+    }
     .mobileMenuBackground {
         opacity: 1;
+    }
+    svg {
+        width: 140px;
+        height: auto;
     }
 }
 
