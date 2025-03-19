@@ -5,6 +5,7 @@ import { useState } from "react";
 import Button from "../Button";
 import useLazyLoad from "../../hooks/useLazyLoad";
 import LazyItem from "../LazyItem";
+import Link from "next/link";
 import styles from "./ContactForm.module.scss";
 const ContactForm = () => {
     useLazyLoad();
@@ -91,7 +92,7 @@ const ContactForm = () => {
             <div className="col-12 d-flex flex-column gap-2 mb-4">
                 <label htmlFor="privacyPolicy" className={styles.privacyPolicy}>
                     <input type="checkbox" {...register("privacyPolicy", { required: "You must accept the Privacy Policy" })} />
-                    <span>By submitting this form, I agree to the <a href="/privacy-policy">Privacy Policy</a> and consent to the collection, use, and storage of my information as described.</span>
+                    <span>By submitting this form, I agree to the <Link href="/privacy-policy">Privacy Policy</Link> and consent to the collection, use, and storage of my information as described.</span>
                 </label>
                 {errors.privacyPolicy && <p>{errors.privacyPolicy.message}</p>}
             </div>
