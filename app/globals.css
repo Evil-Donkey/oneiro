@@ -1,7 +1,10 @@
+@import "tailwindcss";
+
 :root {
   --background: #0F0D42;
 
   --colour-white-00: #ffffff;
+  --colour-grey-00:  #767676;
   --colour-black-00: #050420;
   --colour-blue-00: #08F3F9;
   --colour-blue-01: #008BFF;
@@ -49,16 +52,16 @@ body {
   }
 }
 
-* {
+/* * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-}
+} */
 
-a {
+/* a {
   color: inherit;
   text-decoration: none;
-}
+} */
 
 h1 {
   font-size: var(--font-size-h1);
@@ -86,11 +89,20 @@ h2 {
 
 p {
   font-size: var(--font-size-p);
+  margin-bottom: 1rem;
 }
 
 small {
   font-size: 0.75rem;
   line-height: 0.875rem;
+}
+
+ol {
+  padding-left: 2rem;
+  list-style-type: decimal;
+}
+ol, ul {
+  margin-bottom: 1rem;
 }
 
 .lazy__item {

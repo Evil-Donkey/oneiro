@@ -4,7 +4,6 @@ import Script from 'next/script'
 import GoogleAnalytics from '../lib/googleAnalytics'
 import Overlay from "../components/Overlay";
 import Footer from "../components/Footer";
-import "./styles/bootstrap.scss";
 import "./globals.css";
 
 const inter = Inter({

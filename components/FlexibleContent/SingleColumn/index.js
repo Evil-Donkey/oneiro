@@ -34,19 +34,19 @@ const SingleColumn = ({ data, index }) => {
         >
             {(backgroundVideoDesktop || backgroundVideoMobile) && (
                 <div className={styles.backgroundVideo}>
-                    {backgroundVideoDesktop && <video src={backgroundVideoDesktop.mediaItemUrl} autoPlay muted loop playsInline className={backgroundVideoMobile ? `d-none d-md-block` : ''} />}
-                    {backgroundVideoMobile && <video src={backgroundVideoMobile.mediaItemUrl} autoPlay muted loop playsInline className={backgroundVideoDesktop ? `d-block d-md-none` : ''} />}
+                    {backgroundVideoDesktop && <video src={backgroundVideoDesktop.mediaItemUrl} autoPlay muted loop playsInline className={backgroundVideoMobile ? `hidden md:block` : ''} />}
+                    {backgroundVideoMobile && <video src={backgroundVideoMobile.mediaItemUrl} autoPlay muted loop playsInline className={backgroundVideoDesktop ? `block md:hidden` : ''} />}
                 </div>
             )}
             
-            <div className='container position-relative px-4 px-md-0'>
-                <div className={`row ${centred ? 'justify-content-center text-center ' + styles.singleColumnCentred : ''}`}>
-                    <div className={`col-md-9 col-xl-8 ${!centred ? 'col-xxl-7 pe-xl-5' : ''}`}>
+            <div className='container mx-auto relative px-6 md:px-4'>
+                <div className={`flex flex-col md:flex-row ${centred ? 'justify-center text-center ' + styles.singleColumnCentred : ''}`}>
+                    <div className={`md:w-3/4 xl:w-3/5 ${!centred ? 'xxl:w-7/12 xl:pr-5' : ''}`}>
 
                         {backgroundImageTopRight && backgroundImage && 
-                            <div className='d-md-none'>
+                            <div className='md:hidden'>
                                 <LazyItem>
-                                    <Image className={`w-100 h-auto ${styles.mobileImage}`} src={backgroundImage.mediaItemUrl} alt={backgroundImage.altText} width={backgroundImage.mediaDetails.width} height={backgroundImage.mediaDetails.height} />
+                                    <Image className={`w-full h-auto ${styles.mobileImage}`} src={backgroundImage.mediaItemUrl} alt={backgroundImage.altText} width={backgroundImage.mediaDetails.width} height={backgroundImage.mediaDetails.height} />
                                 </LazyItem>
                             </div>
                         }
@@ -59,23 +59,25 @@ const SingleColumn = ({ data, index }) => {
                         {heading2 && <h2><LazyItem>{heading2}</LazyItem></h2>}
                         {heading1 && <h1><LazyItem>{heading1}</LazyItem></h1>}
                         {copy && <LazyItem><div className={`${list ? styles.copyWithList : ''} ${!centred ? styles.addPadding : ''}`} dangerouslySetInnerHTML={{ __html: copy }} /></LazyItem>}
-                        {index === 0 && <div className='mt-4 d-md-none'><LazyItem><Button href="#request-demo">Request a demo</Button></LazyItem></div>}
+                        {index === 0 && <div className='mt-4 md:hidden'><LazyItem><Button href="#request-demo">Request a demo</Button></LazyItem></div>}
                     </div>
                 </div>
-                {list && <div className='row mt-5'>
-                    <div className='col-lg-9'>
-                        <ul className={`row list-unstyled p-0 ${styles.singleColumnList}`}>
-                            {list.map((item, index) => (
-                                <li key={index.toString()} className='col-md-6 mb-4'>
-                                    <LazyItem className={styles.singleColumnListItem}>
-                                        <h3>{item.heading}</h3>
-                                        <div dangerouslySetInnerHTML={{ __html: item.copy }} />
-                                    </LazyItem>
-                                </li>
-                            ))}
-                        </ul>
+                {list && (
+                    <div className="mt-5">
+                        <div className="lg:w-3/4">
+                            <ul className={`grid md:grid-cols-2 gap-y-4 list-none p-0 ${styles.singleColumnList}`}>
+                                {list.map((item, index) => (
+                                    <li key={index.toString()} className={`${styles.singleColumnListItem}`}>
+                                        <LazyItem>
+                                            <h3>{item.heading}</h3>
+                                            <div dangerouslySetInnerHTML={{ __html: item.copy }} />
+                                        </LazyItem>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
-                </div>}
+                )}
             </div>
 
             <Shine left={index % 2 === 0} parentRef={singleColumnRef} />

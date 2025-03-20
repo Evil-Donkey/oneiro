@@ -112,12 +112,12 @@ export default async function LegalPage({ params }) {
     <>
       <Header themeColor="#0F0D42" />
       <div className={styles.legalContainer}>
-        <div className="container">
-          <div className="row justify-content-between">
-            <div className="col-lg-6 mb-5">
-              <h1>{data.page.title}</h1>
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between">
+            <div className="w-full lg:w-1/2 mb-5">
+              <h1>{data.page.title}</h1> 
             </div>
-            <div className="col-lg-5">
+            <div className="w-full lg:w-2/5">
               <div dangerouslySetInnerHTML={{ __html: data.page.content }} />
             </div>
           </div>

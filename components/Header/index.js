@@ -46,14 +46,14 @@ const Header = ({ themeColor = '#ffffff' }) => {
     return (
         <div className={`${styles.headerContainerWrapper} ${styles.fixedHeader} ${isScrollingUp ? '' : styles.headerHidden} ${isHeaderScrolled ? styles.headerScrolled : ''}`}>
             <div className={`${styles.mobileMenuBackground} ${isMobileMenuOpen ? styles.mobileMenuBackgroundActive : ''}`} />
-            <div className={`${styles.headerContainer} container`}>
-                <div className="row align-items-md-center justify-content-between">
-                    <div className={`col ${styles.logoContainer}`}>
+            <div className={`${styles.headerContainer} container mx-auto px-4`}>
+                <div className="flex items-center justify-between">
+                    <div className={`${styles.logoContainer}`}>
                         <Link href="/">
                             <Logo themeColor={themeColor} />
                         </Link>
                     </div>
-                    <div className={`col text-end pt-2 pt-md-0 ${styles.buttonContainer}`}>
+                    <div className={`text-right ${styles.buttonContainer}`}>
                         <Button href="#request-demo">Request a demo</Button>
                     </div>
                 </div>

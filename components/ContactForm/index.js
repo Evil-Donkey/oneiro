@@ -58,38 +58,38 @@ const ContactForm = () => {
 
   return (
     <LazyItem> 
-        <form onSubmit={handleSubmit(onSubmit)} className={`row ${styles.form}`}>
-                <div className="col-12 col-md-6 d-flex flex-column gap-2 mb-4">
-                    <label htmlFor="firstName">First Name*</label>
+        <form onSubmit={handleSubmit(onSubmit)} className={`flex -mx-4 flex-col md:flex-row flex-wrap ${styles.form}`}>
+            <div className="md:w-1/2 flex flex-col gap-2 mb-4 px-4">
+                <label htmlFor="firstName">First Name*</label>
                 <input type="text" {...register("firstName", { required: "First name is required" })} placeholder="First Name" />
                 {errors.firstName && <p>{errors.firstName.message}</p>}
             </div>
 
-            <div className="col-12 col-md-6 d-flex flex-column gap-2 mb-4">
+            <div className="md:w-1/2 flex flex-col gap-2 mb-4 px-4">
                 <label htmlFor="lastName">Last Name*</label>
                 <input type="text" {...register("lastName", { required: "Last name is required" })} placeholder="Last Name" />
                 {errors.lastName && <p>{errors.lastName.message}</p>}
             </div>
 
-            <div className="col-12 d-flex flex-column gap-2 mb-4">
+            <div className="w-full flex flex-col gap-2 mb-4 px-4">
                 <label htmlFor="email">Email*</label>
                 <input type="email" {...register("email", { required: "Email is required" })} placeholder="Email" />
                 {errors.email && <p>{errors.email.message}</p>}
             </div>
 
-            <div className="col-12 d-flex flex-column gap-2 mb-4">
+            <div className="w-full flex flex-col gap-2 mb-4 px-4">
                 <label htmlFor="company">Company / Organisation*</label>
                 <input type="text" {...register("company", { required: "Company is required" })} placeholder="Company / Organisation" />
                 {errors.company && <p>{errors.company.message}</p>}
             </div>
 
-            <div className="col-12 d-flex flex-column gap-2 mb-4">
+            <div className="w-full flex flex-col gap-2 mb-4 px-4">
                 <label htmlFor="jobTitle">Job Title*</label>
                 <input type="text" {...register("jobTitle", { required: "Job title is required" })} placeholder="Job Title" />
                 {errors.jobTitle && <p>{errors.jobTitle.message}</p>}
             </div>
 
-            <div className="col-12 d-flex flex-column gap-2 mb-4">
+            <div className="w-full flex flex-col gap-2 mb-4 px-4">
                 <label htmlFor="privacyPolicy" className={styles.privacyPolicy}>
                     <input type="checkbox" {...register("privacyPolicy", { required: "You must accept the Privacy Policy" })} />
                     <span>By submitting this form, I agree to the <Link href="/privacy-policy">Privacy Policy</Link> and consent to the collection, use, and storage of my information as described.</span>
@@ -97,11 +97,11 @@ const ContactForm = () => {
                 {errors.privacyPolicy && <p>{errors.privacyPolicy.message}</p>}
             </div>
 
-            <div className="col-12 d-flex flex-column align-items-end gap-2">
+            <div className="w-full flex flex-col items-end gap-2 px-4">
                 <Button submit>Submit</Button>
             </div>
 
-            <div className="col-12 d-flex flex-column gap-2 mt-5 mt-md-0">
+            <div className="w-full flex flex-col gap-2 mt-5 mt-md-0 px-4">
                 {success && <p>Form submitted successfully!</p>}
                 {error && <p>{error}</p>}
             </div>
