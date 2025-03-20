@@ -41,6 +41,7 @@ const dataOptions = await fetchAPI(`
 const themeSettings = dataOptions?.acfOptionsThemeSettings?.themeSettings;
 const GA_TRACKING_ID = process.env.GA_TRACKING_ID
 const COOKIE_YES_ID = process.env.COOKIE_YES_ID
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -49,7 +50,7 @@ export default function RootLayout({ children }) {
         {children}
         <Footer themeSettings={themeSettings} />
         <GoogleAnalytics GA_TRACKING_ID={GA_TRACKING_ID} />
-        <Script src={`https://cdn-cookieyes.com/client_data/${COOKIE_YES_ID}/script.js`} strategy='beforeInteractive' />
+        <Script src='https://cdn-cookieyes.com/client_data/5a5b8dc6bc1903b2ec2cec59/script.js' strategy='beforeInteractive' />
       </body>
     </html>
   );
