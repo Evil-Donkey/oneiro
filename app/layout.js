@@ -3,7 +3,7 @@ import fetchAPI from '../lib/api'
 import GoogleAnalytics from '../lib/googleAnalytics'
 import Overlay from "../components/Overlay";
 import Footer from "../components/Footer";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "./styles/bootstrap.scss";
 import "./globals.css";
 
 const inter = Inter({
@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
         <Overlay />
         {children}
         <Footer themeSettings={themeSettings} />
-        {/* <GoogleAnalytics GA_TRACKING_ID={GA_TRACKING_ID} /> */}
+        <GoogleAnalytics GA_TRACKING_ID={GA_TRACKING_ID} />
       </body>
     </html>
   );

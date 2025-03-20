@@ -53,7 +53,7 @@ const SingleColumn = ({ data, index }) => {
 
                         {icon && <div className='mb-4'>
                             <LazyItem>
-                                <img src={icon.mediaItemUrl} alt={icon.altText} />
+                                <Image src={icon.mediaItemUrl} alt={icon.altText} width={icon.mediaDetails.width} height={icon.mediaDetails.height} />
                             </LazyItem>
                         </div>}
                         {heading2 && <h2><LazyItem>{heading2}</LazyItem></h2>}
