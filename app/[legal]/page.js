@@ -1,5 +1,3 @@
-// app/[legal]/page.js
-
 import fetchAPI from '../../lib/api';
 import styles from './Legal.module.scss';
 import Header from '../../components/Header';
