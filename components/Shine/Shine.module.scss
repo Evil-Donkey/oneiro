@@ -26,9 +26,9 @@
     .shineMain {
         position: absolute;
         bottom: -70px;
-        backface-visibility: visible;
+        // backface-visibility: visible;
+        // transform: translate3d(0,0,0);
         mix-blend-mode: screen;
-        transform: translate3d(0,0,0);
         width: 150px;
         height: auto;
         z-index: 1;

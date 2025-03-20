@@ -33,8 +33,8 @@ const Shine = ({ left = false, parentRef }) => {
                 shineEl,
                 { autoAlpha: 0 },
                 {
-                    autoAlpha: 1,
-                    ease: "power2.out",
+                    // autoAlpha: 1,
+                    // ease: "power2.out",
                     scrollTrigger: {
                         trigger: parentRef.current,
                         start: "bottom 100%",
