@@ -108,7 +108,7 @@ const Shine = ({ left = false, parentRef }) => {
                 <Image 
                     src={shineMain} 
                     alt="Shine Main" 
-                    onLoadingComplete={handleImageLoad}
+                    onLoad={handleImageLoad}
                 />
             </div>
         </div>
