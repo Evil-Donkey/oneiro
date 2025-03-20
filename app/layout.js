@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
         <Overlay />
         {children}
         <Footer themeSettings={themeSettings} />
-        <GoogleAnalytics GA_TRACKING_ID={GA_TRACKING_ID} />
+        {/* <GoogleAnalytics GA_TRACKING_ID={GA_TRACKING_ID} /> */}
       </body>
     </html>
   );
