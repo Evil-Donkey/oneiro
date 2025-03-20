@@ -1,4 +1,5 @@
 import fetchAPI from '../../lib/api';
+import { notFound } from 'next/navigation';
 import styles from './Legal.module.scss';
 import Header from '../../components/Header';
 import PageFlexibleContent from '../../components/FlexibleContent';
@@ -34,7 +35,7 @@ export default async function LegalPage({ params }) {
   const { legal } = await params || {};
 
   if (!legal) {
-    return <h1>404 - Page Not Found</h1>;
+    notFound();
   }
 
   const data = await fetchAPI(`
@@ -47,7 +48,7 @@ export default async function LegalPage({ params }) {
   `);
 
   if (!data?.page) {
-    return <h1>404 - Page Not Found</h1>;
+    notFound();
   }
 
   const pageData = await fetchAPI(`
