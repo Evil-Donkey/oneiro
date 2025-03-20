@@ -2,6 +2,7 @@ import fetchAPI from '../lib/api'
 import generateMetadata from '../lib/generateMetadata'
 import PageFlexibleContent from '../components/FlexibleContent'
 import Header from '../components/Header'
+
 generateMetadata("9");
 
 export default async function Page() {
