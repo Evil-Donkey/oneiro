@@ -37,21 +37,9 @@ export default async function LegalPage({ params }) {
   if (!legal) {
     notFound();
   }
+  
 
   const data = await fetchAPI(`
-    query getPageBySlug {
-      page(id: "${legal}", idType: URI) {
-        content(format: RENDERED)
-        title(format: RENDERED)
-      }
-    }
-  `);
-
-  if (!data?.page) {
-    notFound();
-  }
-
-  const pageData = await fetchAPI(`
     query getHomePage {
       page(id: "${legal}", idType: URI) {
         content(format: RENDERED)
@@ -106,11 +94,15 @@ export default async function LegalPage({ params }) {
     }
   `);
 
-  const flexibleContent = pageData?.page?.flexibleContent?.flexibleContent;
+  if (!data?.page) {
+    notFound();
+  }
+
+  const flexibleContent = data?.page?.flexibleContent?.flexibleContent;
 
   return (
     <>
-      <Header themeColor="#0F0D42" />
+      <Header themeColor="--background" />
       <div className={styles.legalContainer}>
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between">

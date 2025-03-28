@@ -1,0 +1,120 @@
+import fetchAPI from '../../../lib/api';
+import { notFound } from 'next/navigation';
+import styles from '../Insights.module.scss';
+import Header from '../../../components/Header';
+import Image from 'next/image';
+import RequestDemo from '../../../components/FlexibleContent/RequestDemo';
+
+
+export async function generateMetadata({ params }) {
+  const { blog } = await params || {};
+
+  if (!blog) {
+    return {
+      title: "Oneiro Solutions",
+      description: "Page not found",
+    };
+  }
+
+  const data = await fetchAPI(`
+    query getPageBySlug {
+      post(id: "${blog}", idType: URI) {
+        seo {
+          title
+          metaDesc
+        }
+      }
+    }
+  `);
+
+  return {
+    title: data?.page?.seo?.title || "Oneiro Solutions",
+    description: data?.page?.seo?.metaDesc || "Oneiro Solutions",
+  };
+}
+
+export default async function InsightsPostPage({ params }) {
+  const { blog } = await params || {};
+
+  if (!blog) {
+    notFound();
+  }
+
+  const data = await fetchAPI(`
+    query getPageBySlug {
+      post(id: "${blog}", idType: URI) {
+        content(format: RENDERED)
+        title(format: RENDERED)
+        blogAuthor {
+          name
+          role
+          photo {
+            altText
+            mediaDetails {
+              height
+              width
+            }
+            mediaItemUrl
+          }
+        }
+        featuredImage {
+          node {
+            altText
+            mediaItemUrl
+            mediaDetails {
+              height
+              width
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  if (!data?.post) {
+    notFound();
+  }
+
+  const { title, content, blogAuthor, featuredImage } = data.post;
+
+  return (
+    <>
+      <Header themeColor="--background" />
+      <div className={styles.insightsContainer}>
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col items-center">
+            {title && (
+              <div className="w-full">
+                <h1>{title}</h1> 
+              </div>
+            )}
+            {blogAuthor && (
+              <div className="w-full flex items-center flex-wrap gap-8 mb-8">
+                {blogAuthor.photo && (
+                  <div className="aspect-square w-25 rounded-full overflow-hidden">
+                    <Image src={blogAuthor.photo.mediaItemUrl} alt={blogAuthor.photo.altText} width={blogAuthor.photo.mediaDetails.width} height={blogAuthor.photo.mediaDetails.height} />
+                  </div>
+                )}
+                <p className="m-0!">Written by {blogAuthor.name}, {blogAuthor.role}</p>
+              </div>
+            )}
+            {featuredImage && (
+              <div className="w-full mb-8">
+                <img src={featuredImage.node.mediaItemUrl} alt={featuredImage.node.altText} />
+              </div>
+            )}
+            {content && (
+              <div className="w-full lg:w-1/2">
+                <div dangerouslySetInnerHTML={{ __html: content }} />
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <RequestDemo />
+    </>
+  );
+}
+
+export const dynamic = "force-dynamic";

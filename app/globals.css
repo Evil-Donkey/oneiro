@@ -4,6 +4,7 @@
   --background: #0F0D42;
 
   --colour-white-00: #ffffff;
+  --colour-white-01: #f1f1f1;
   --colour-grey-00:  #767676;
   --colour-black-00: #050420;
   --colour-blue-00: #08F3F9;
@@ -35,7 +36,7 @@ body {
   background: var(--background);
   font-family: var(--font-inter);
   font-size: var(--font-size-p);
-  letter-spacing: 0.063rem;
+  letter-spacing: 0.01rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   flex-direction: column;

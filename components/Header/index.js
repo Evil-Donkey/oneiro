@@ -6,7 +6,7 @@ import Logo from '../Logo'
 import Button from '../Button'
 import styles from './Header.module.scss'
 
-const Header = ({ themeColor = '#ffffff' }) => {
+const Header = ({ themeColor = '--colour-white-00' }) => {
 
     const [isScrollingUp, setIsScrollingUp] = useState(true);
     const [isHeaderScrolled, setIsHeaderScrolled] = useState(false);

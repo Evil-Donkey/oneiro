@@ -8,11 +8,10 @@ import styles from "./RequestDemo.module.scss";
 const RequestDemo = ({ data }) => {
 
     useLazyLoad();
-    const { 
-        copy, 
-        heading1, 
-        heading2,
-    } = data;
+
+    let heading1 = data?.heading1 ? data?.heading1 : 'See DLX in Action';
+    let heading2 = data?.heading2 ? data?.heading2 : 'Request a Demo';
+    let copy = data?.copy ? data?.copy : '<p>Complete the form below, and one of our experts will be in touch to arrange your personalised demo.</p>';
 
     return (
         <div className={styles.requestDemo} id="request-demo">
@@ -24,7 +23,7 @@ const RequestDemo = ({ data }) => {
                     </div>
                     <div className='md:w-1/2'>
                         {copy && <LazyItem><div dangerouslySetInnerHTML={{ __html: copy }} /></LazyItem>}
-                        <ContactForm />
+                        <LazyItem><ContactForm /></LazyItem>
                     </div>
                 </div>
             </div>
