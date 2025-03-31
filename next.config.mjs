@@ -14,6 +14,14 @@ const nextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/:blog',
+        destination: '/insights/:blog',
+      },
+    ];
+  },
   async redirects() {
     return [
       {
