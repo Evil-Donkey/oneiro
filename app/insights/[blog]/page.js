@@ -6,7 +6,9 @@ import Image from 'next/image';
 import RequestDemo from '../../../components/FlexibleContent/RequestDemo';
 
 export async function generateMetadata({ params }) {
+  console.log("generateMetadata params:", params); // Debugging
   const { blog } = await params || {};
+  console.log("Blog slug in generateMetadata:", blog);
 
   if (!blog) {
     return {
@@ -33,7 +35,9 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function InsightsPostPage({ params }) {
+  console.log("InsightsPostPage params:", params);
   const { blog } = await params || {};
+  console.log("Blog slug:", blog);
 
   if (!blog) {
     notFound();
