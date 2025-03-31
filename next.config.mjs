@@ -17,6 +17,18 @@ const nextConfig = {
   async rewrites() {
     return [
       {
+        source: '/terms-of-use',
+        destination: '/legal/terms-of-use',
+      },
+      {
+        source: '/privacy-policy',
+        destination: '/legal/privacy-policy',
+      },
+      {
+        source: '/anti-slavery-policy',
+        destination: '/legal/anti-slavery-policy',
+      },
+      {
         source: '/:blog',
         destination: '/insights/:blog',
       },

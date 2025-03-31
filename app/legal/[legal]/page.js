@@ -1,8 +1,8 @@
-import fetchAPI from '../../lib/api';
+import fetchAPI from '../../../lib/api';
 import { notFound } from 'next/navigation';
 import styles from './Legal.module.scss';
-import Header from '../../components/Header';
-import PageFlexibleContent from '../../components/FlexibleContent';
+import Header from '../../../components/Header';
+import PageFlexibleContent from '../../../components/FlexibleContent';
 
 export async function generateMetadata({ params }) {
   const { legal } = await params || {};
@@ -95,7 +95,7 @@ export default async function LegalPage({ params }) {
   `);
 
   if (!data?.page) {
-    notFound();
+    return notFound();
   }
 
   const flexibleContent = data?.page?.flexibleContent?.flexibleContent;

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Header from '../components/Header'
-import styles from './[legal]/Legal.module.scss'
+import styles from './legal/[legal]/Legal.module.scss'
  
 export default function NotFound() {
   return (

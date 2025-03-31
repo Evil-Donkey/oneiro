@@ -70,8 +70,6 @@ export default async function InsightsPostPage({ params }) {
     }
   `);
 
-  console.log("Fetched Data:", data);
-
   if (!data?.post) {
     return notFound();
   }
