@@ -88,7 +88,7 @@ export default async function InsightsPostPage({ params }) {
                 <h1>{title}</h1> 
               </div>
             )}
-            {blogAuthor && (
+            {blogAuthor.name && (
               <div className="w-full flex items-center flex-wrap gap-8 mb-8">
                 {blogAuthor.photo && (
                   <div className="aspect-square w-25 rounded-full overflow-hidden">
@@ -99,8 +99,8 @@ export default async function InsightsPostPage({ params }) {
               </div>
             )}
             {featuredImage && (
-              <div className="w-full mb-8">
-                <img src={featuredImage.node.mediaItemUrl} alt={featuredImage.node.altText} />
+              <div className="w-full mb-8 aspect-2/1 overflow-hidden rounded-md">
+                <Image className="w-full h-full object-cover" src={featuredImage.node.mediaItemUrl} alt={featuredImage.node.altText} width={featuredImage.node.mediaDetails.width} height={featuredImage.node.mediaDetails.height} />
               </div>
             )}
             {content && (
