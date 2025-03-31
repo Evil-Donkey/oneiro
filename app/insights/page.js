@@ -82,7 +82,7 @@ export default async function InsightsPage() {
 
                             return (
                                 <div key={databaseId} className={`${isFeatured ? 'w-full lg:w-1/2' : 'w-full md:w-1/3'} px-5 mb-10`}>
-                                    <Link href={`/${slug}/`}>
+                                    <Link href={`/${slug}`} prefetch={false}>
                                         <div className="relative rounded-md overflow-hidden mb-5">
                                             <Image className="aspect-3/2 object-cover" src={featuredImage.node.mediaItemUrl} alt={featuredImage.node.altText} width={featuredImage.node.mediaDetails.width} height={featuredImage.node.mediaDetails.height} />
                                         </div>

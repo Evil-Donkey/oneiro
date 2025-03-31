@@ -5,7 +5,6 @@ import Header from '../../../components/Header';
 import Image from 'next/image';
 import RequestDemo from '../../../components/FlexibleContent/RequestDemo';
 
-
 export async function generateMetadata({ params }) {
   const { blog } = await params || {};
 
@@ -28,8 +27,8 @@ export async function generateMetadata({ params }) {
   `);
 
   return {
-    title: data?.page?.seo?.title || "Oneiro Solutions",
-    description: data?.page?.seo?.metaDesc || "Oneiro Solutions",
+    title: data?.post?.seo?.title || "Oneiro Solutions",
+    description: data?.post?.seo?.metaDesc || "Oneiro Solutions",
   };
 }
 
@@ -72,7 +71,7 @@ export default async function InsightsPostPage({ params }) {
   `);
 
   if (!data?.post) {
-    notFound();
+    return notFound();
   }
 
   const { title, content, blogAuthor, featuredImage } = data.post;
