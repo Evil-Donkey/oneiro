@@ -1,6 +1,6 @@
 "use client";
 
-import ContactForm from "@/components/ContactForm";
+import DemoForm from "@/components/DemoForm";
 import useLazyLoad from "@/hooks/useLazyLoad";
 import LazyItem from "@/components/LazyItem";
 import styles from "./RequestDemo.module.scss";
@@ -18,12 +18,12 @@ const RequestDemo = ({ data }) => {
             <div className='container px-6 md:px-4 mx-auto'>
                 <div className='flex flex-col md:flex-row'>
                     <div className='md:w-1/2'>
-                        {heading2 && <LazyItem><h2>{heading2}</h2></LazyItem>}
+                        {heading2 && <LazyItem><h3>{heading2}</h3></LazyItem>}
                         {heading1 && <LazyItem><h1>{heading1}</h1></LazyItem>}
                     </div>
                     <div className='md:w-1/2'>
                         {copy && <LazyItem><div dangerouslySetInnerHTML={{ __html: copy }} /></LazyItem>}
-                        <LazyItem><ContactForm /></LazyItem>
+                        <LazyItem><DemoForm /></LazyItem>
                     </div>
                 </div>
             </div>
