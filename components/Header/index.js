@@ -54,7 +54,7 @@ const Header = ({ themeColor = '--colour-white-00' }) => {
                         </Link>
                     </div>
                     <div className={`text-right ${styles.buttonContainer}`}>
-                        <Button href="#request-demo">Request a demo</Button>
+                        <Button href="/#request-demo">Request a demo</Button>
                     </div>
                 </div>
             </div>

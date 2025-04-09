@@ -11,7 +11,7 @@
         min-height: 100vh;
     }
     &.darkBlue {
-        h2 {
+        h3 {
             color: var(--colour-blue-01);
         }
     }
@@ -26,7 +26,13 @@
             background-size: 50% auto;
         }
     }
-    h2 {
+    h1 {
+        @media (min-width: 768px) {
+            font-size: 2.5rem;
+            line-height: 3.125rem;
+        }
+    }
+    h3 {
         color: var(--colour-blue-00);
     }
 }
@@ -34,6 +40,8 @@
 .singleColumn0 {
     h1 {
         transform: translateX(-5px);
+        font-size: var(--font-size-h1);
+        line-height: 3.875rem;
         @media (max-width: 767px) {
             font-size: 3.5rem;
             line-height: 3.7rem;
@@ -104,7 +112,7 @@
 
 .addPadding {
     @media (min-width: 1200px) {
-        padding-right: 10rem;
+        padding-right: 12rem;
     }
 }
 

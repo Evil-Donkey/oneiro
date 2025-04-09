@@ -17,6 +17,8 @@ const SingleColumn = ({ data, index }) => {
         backgroundImageTopRight,
         backgroundVideoMobile, 
         copy, 
+        ctaLabel,
+        ctaUrl,
         centred,
         darkBlue,
         fullHeight, 
@@ -41,7 +43,7 @@ const SingleColumn = ({ data, index }) => {
             
             <div className='container mx-auto relative px-6 md:px-4'>
                 <div className={`flex flex-col md:flex-row ${centred ? 'justify-center text-center ' + styles.singleColumnCentred : ''}`}>
-                    <div className={`md:w-3/4 xl:w-3/5 ${!centred ? 'xxl:w-7/12 xl:pr-5' : ''}`}>
+                    <div className={`md:w-3/4 lg:w-7/12 ${!centred ? ' xl:pr-5' : ''}`}>
 
                         {backgroundImageTopRight && backgroundImage && 
                             <div className='md:hidden'>
@@ -56,10 +58,11 @@ const SingleColumn = ({ data, index }) => {
                                 <Image src={icon.mediaItemUrl} alt={icon.altText} width={icon.mediaDetails.width} height={icon.mediaDetails.height} />
                             </LazyItem>
                         </div>}
-                        {heading2 && <h2><LazyItem>{heading2}</LazyItem></h2>}
+                        {heading2 && <h3><LazyItem>{heading2}</LazyItem></h3>}
                         {heading1 && <h1><LazyItem>{heading1}</LazyItem></h1>}
                         {copy && <LazyItem><div className={`${list ? styles.copyWithList : ''} ${!centred ? styles.addPadding : ''}`} dangerouslySetInnerHTML={{ __html: copy }} /></LazyItem>}
                         {index === 0 && <div className='mt-4 md:hidden'><LazyItem><Button href="#request-demo">Request a demo</Button></LazyItem></div>}
+                        {ctaLabel && ctaUrl && <div className='mt-8'><LazyItem><Button href={ctaUrl}>{ctaLabel}</Button></LazyItem></div>}
                     </div>
                 </div>
                 {list && (

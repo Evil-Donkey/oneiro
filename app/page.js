@@ -52,12 +52,46 @@ export default async function Page() {
                 copy
                 heading
               }
+                ctaLabel
+                ctaUrl
             }
             ... on Page_Flexiblecontent_FlexibleContent_RequestADemo {
               copy
               fieldGroupName
               heading1
               heading2
+            }
+            ... on Page_Flexiblecontent_FlexibleContent_TabbedPanels {
+              copy
+              fieldGroupName
+              heading
+              panels {
+                boxCopy
+                ctaLabel
+                ctaUrl
+                heading
+                mainCopy
+                navLabel
+                backgroundImage {
+                  mediaItemUrl
+                }
+              }
+            }
+            ... on Page_Flexiblecontent_FlexibleContent_CentredCopy {
+              copy
+              fieldGroupName
+              heading
+            }
+            ... on Page_Flexiblecontent_FlexibleContent_FullWidthImage {
+              fieldGroupName
+              image {
+                altText
+                mediaItemUrl
+                mediaDetails {
+                  height
+                  width
+                }
+              }
             }
           }
         }
