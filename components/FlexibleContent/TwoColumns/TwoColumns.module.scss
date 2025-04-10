@@ -1,0 +1,13 @@
+.twoColumns {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-size: cover;
+    background-position: center;
+    
+    h1 {
+        @media (min-width: 768px) {
+            font-size: 2.5rem;
+            line-height: 3.125rem;
+        }
+    }
+}

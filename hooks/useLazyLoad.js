@@ -8,29 +8,37 @@ gsap.registerPlugin(ScrollTrigger);
 
 const useLazyLoad = () => {
   useEffect(() => {
-    // Kill existing ScrollTriggers before adding a new one
-    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    if (typeof window === "undefined") return;
 
-    // Lazy load batch initialization
+    // Prevent duplicate triggers
+    if (ScrollTrigger.getById("lazy-load")) return;
+
     ScrollTrigger.batch(".lazy__item", {
+      id: "lazy-load",
       start: "top 80%",
       onEnter: batch =>
         gsap.fromTo(
           batch,
           { opacity: 0, y: 40 },
-          { opacity: 1, y: 0, duration: 1, stagger: { each: 0.2 }, overwrite: true }
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            stagger: { each: 0.2 },
+            overwrite: true,
+          }
         ),
-      once: true
+      once: true,
     });
 
-    // Refresh ScrollTrigger to account for any DOM changes
     ScrollTrigger.refresh();
 
     return () => {
-      // Clean up on unmount
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach(trigger => {
+        if (trigger.vars.id === "lazy-load") trigger.kill();
+      });
     };
-  }, []); // Only run on component mount
+  }, []);
 };
 
 export default useLazyLoad;

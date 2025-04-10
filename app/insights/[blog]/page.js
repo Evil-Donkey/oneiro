@@ -1,4 +1,5 @@
 import fetchAPI from '../../../lib/api';
+import LazyLoadInitializer from '../../../lib/lazyLoader';
 import { notFound } from 'next/navigation';
 import styles from '../Insights.module.scss';
 import Header from '../../../components/Header';
@@ -78,6 +79,7 @@ export default async function InsightsPostPage({ params }) {
 
   return (
     <>
+      <LazyLoadInitializer />
       <Header themeColor="--background" />
       <div className={styles.insightsContainer}>
         <div className="container mx-auto px-4">

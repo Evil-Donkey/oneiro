@@ -3,12 +3,10 @@
 import { useRef } from "react";
 import styles from "./SingleColumn.module.scss";
 import Image from "next/image";
-import useLazyLoad from "../../../hooks/useLazyLoad";
 import LazyItem from "../../LazyItem";
 import Shine from "@/components/Shine";
 import Button from "@/components/Button";
 const SingleColumn = ({ data, index }) => {
-    useLazyLoad();
     const singleColumnRef = useRef(null);
 
     const { 
@@ -24,6 +22,8 @@ const SingleColumn = ({ data, index }) => {
         fullHeight, 
         heading1, 
         heading2,
+        hideShine,
+        largerHeading,
         icon,
         list 
     } = data;
@@ -59,10 +59,10 @@ const SingleColumn = ({ data, index }) => {
                             </LazyItem>
                         </div>}
                         {heading2 && <h3><LazyItem>{heading2}</LazyItem></h3>}
-                        {heading1 && <h1><LazyItem>{heading1}</LazyItem></h1>}
+                        {heading1 && <h1 className={!largerHeading ? 'text-4xl!' : '-translate-x-1 translate-y-2'}><LazyItem><div dangerouslySetInnerHTML={{ __html: heading1 }} /></LazyItem></h1>}
                         {copy && <LazyItem><div className={`${list ? styles.copyWithList : ''} ${!centred ? styles.addPadding : ''}`} dangerouslySetInnerHTML={{ __html: copy }} /></LazyItem>}
                         {index === 0 && <div className='mt-4 md:hidden'><LazyItem><Button href="#request-demo">Request a demo</Button></LazyItem></div>}
-                        {ctaLabel && ctaUrl && <div className='mt-8'><LazyItem><Button href={ctaUrl}>{ctaLabel}</Button></LazyItem></div>}
+                        {ctaLabel && ctaUrl && <div className='mt-8 mb-10'><LazyItem><Button href={ctaUrl}>{ctaLabel}</Button></LazyItem></div>}
                     </div>
                 </div>
                 {list && (
@@ -83,7 +83,7 @@ const SingleColumn = ({ data, index }) => {
                 )}
             </div>
 
-            <Shine left={index % 2 === 0} parentRef={singleColumnRef} />
+            {!hideShine && <Shine left={index % 2 === 0} parentRef={singleColumnRef} />}
         </div>
     )
 }

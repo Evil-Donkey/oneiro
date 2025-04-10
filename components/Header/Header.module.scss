@@ -38,6 +38,11 @@
             display: block;
         }
     }
+    ul {
+        li {
+            color: var(--colour-white-00) !important;
+        }
+    }
 }
 
 @media screen and (max-width: 767px) {

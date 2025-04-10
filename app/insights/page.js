@@ -1,5 +1,6 @@
 import fetchAPI from '../../lib/api';
 import generateMetadataFromLib from '../../lib/generateMetadata';
+import LazyLoadInitializer from '../../lib/lazyLoader';
 import Header from '../../components/Header';
 import RequestDemo from '../../components/FlexibleContent/RequestDemo';
 import Image from 'next/image';
@@ -61,6 +62,7 @@ export default async function InsightsPage() {
 
   return (
     <>
+      <LazyLoadInitializer />
       <Header themeColor="--background" />
 
       <div className={styles.insightsContainer}>

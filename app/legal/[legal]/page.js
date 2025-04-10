@@ -1,4 +1,5 @@
 import fetchAPI from '../../../lib/api';
+import LazyLoadInitializer from '../../../lib/lazyLoader';
 import { notFound } from 'next/navigation';
 import styles from './Legal.module.scss';
 import Header from '../../../components/Header';
@@ -69,6 +70,7 @@ export default async function LegalPage({ params }) {
               fullHeight
               heading1
               heading2
+              largerHeading
               icon {
                 altText
                 mediaItemUrl
@@ -102,6 +104,7 @@ export default async function LegalPage({ params }) {
 
   return (
     <>
+      <LazyLoadInitializer />
       <Header themeColor="--background" />
       <div className={styles.legalContainer}>
         <div className="container mx-auto px-4">

@@ -1,13 +1,10 @@
 "use client";
 
 import DemoForm from "@/components/DemoForm";
-import useLazyLoad from "@/hooks/useLazyLoad";
 import LazyItem from "@/components/LazyItem";
 import styles from "./RequestDemo.module.scss";
 
 const RequestDemo = ({ data }) => {
-
-    useLazyLoad();
 
     let heading1 = data?.heading1 ? data?.heading1 : 'See DLX in Action';
     let heading2 = data?.heading2 ? data?.heading2 : 'Request a Demo';

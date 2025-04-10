@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Logo from '../Logo'
 import Button from '../Button'
+import Navigation from '../Navigation'
 import styles from './Header.module.scss'
 
 const Header = ({ themeColor = '--colour-white-00' }) => {
@@ -53,8 +54,11 @@ const Header = ({ themeColor = '--colour-white-00' }) => {
                             <Logo themeColor={themeColor} />
                         </Link>
                     </div>
-                    <div className={`text-right ${styles.buttonContainer}`}>
-                        <Button href="/#request-demo">Request a demo</Button>
+                    <div className="flex items-center justify-center gap-x-5">
+                        <Navigation themeColor={themeColor} />
+                        <div className={`text-right ${styles.buttonContainer}`}>
+                            <Button href="/#request-demo">Request a demo</Button>
+                        </div>
                     </div>
                 </div>
             </div>

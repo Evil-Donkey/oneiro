@@ -1,5 +1,6 @@
 import fetchAPI from '../../lib/api';
 import generateMetadataFromLib from '../../lib/generateMetadata';
+import LazyLoadInitializer from '../../lib/lazyLoader';
 import Header from '../../components/Header';
 import RequestDemo from '../../components/FlexibleContent/RequestDemo';
 import ContactForm from '../../components/ContactForm';
@@ -40,9 +41,10 @@ export default async function ContactPage() {
 
     return (
         <>
-        <Header themeColor="--background" />
+            <LazyLoadInitializer />
+            <Header themeColor="--background" />
 
-        <div className={styles.contactContainer}>
+            <div className={styles.contactContainer}>
                 <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between">
                     <div className="w-full md:w-1/2 mb-10 md:mb-0">
                         <LazyItem>

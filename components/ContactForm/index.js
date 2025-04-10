@@ -3,12 +3,10 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import Button from "../Button";
-import useLazyLoad from "../../hooks/useLazyLoad";
 import LazyItem from "../LazyItem";
 import Link from "next/link";
 import styles from "./ContactForm.module.scss";
 const ContactForm = () => {
-    useLazyLoad();
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [success, setSuccess] = useState(false);

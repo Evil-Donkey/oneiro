@@ -10,8 +10,9 @@
   --colour-black-00: #050420;
   --colour-blue-00: #08F3F9;
   --colour-blue-01: #008BFF;
-  --colour-blue-02: #0C0B2E;
+  --colour-blue-02: #0B0A36;
   --colour-blue-03: #1F1D5B;
+  --colour-blue-04: #161451;
   
   --gradient-00: linear-gradient(266.81deg, #3B37E4 0%, #1EA2F0 50%, #3B37E4 100%);
   
@@ -30,11 +31,14 @@
   --color-grey-00:  #767676;
   --color-grey-01:  #BFBFBF;
   --color-grey-02:  #DADADA;
+  --color-grey-03:  #E7E7E7;
   --color-black-00: #050420;
   --color-blue-00: #08F3F9;
   --color-blue-01: #008BFF;
-  --color-blue-02: #0C0B2E;
+  --color-blue-02: #0B0A36;
   --color-blue-03: #1F1D5B;
+  --color-blue-04: #0F0D42;
+  --color-blue-05: #161451;
 }
 
 ::placeholder {
