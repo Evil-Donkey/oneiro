@@ -8,6 +8,7 @@ import FullWidthImage from "./FullWidthImage";
 import SlidingBlocks from "./SlidingBlocks";
 import ScrollingText from "./ScrollingText";
 import Quote from "./Quote";
+import Team from "./Team";
 
 const PageFlexibleContent = ({ data }) => {
 
@@ -46,6 +47,9 @@ const PageFlexibleContent = ({ data }) => {
         }
         if (fieldGroupName === "Page_Flexiblecontent_FlexibleContent_Quote") {
             flexibleContentArray.push(<Quote data={data} key={i.toString()} />);
+        }
+        if (fieldGroupName === "Page_Flexiblecontent_FlexibleContent_Team") {
+            flexibleContentArray.push(<Team data={data} key={i.toString()} />);
         }
     })}
 
