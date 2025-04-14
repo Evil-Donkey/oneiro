@@ -5,7 +5,7 @@ import styles from './legal/[legal]/Legal.module.scss'
 export default function NotFound() {
   return (
     <>
-        <Header themeColor="--background" />
+        <Header lightTheme={true} />
         <div className={styles.legalContainer}>
             <div className="container mx-auto px-4">
                 <div className="flex justify-between">

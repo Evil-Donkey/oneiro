@@ -14,7 +14,7 @@ const Footer = ({ themeSettings }) => {
                     <div className="flex flex-col md:flex-row items-start md:items-center justify-between">
                         <div className="md:w-1/2">
                             <Link href="/">
-                                <Logo themeColor="#ffffff" />
+                                <Logo lightTheme={false} />
                             </Link>
 
                             <div className="mt-5 flex flex-col gap-4">

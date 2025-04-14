@@ -105,7 +105,7 @@ export default async function LegalPage({ params }) {
   return (
     <>
       <LazyLoadInitializer />
-      <Header themeColor="--background" />
+      <Header lightTheme={true} />
       <div className={styles.legalContainer}>
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between">

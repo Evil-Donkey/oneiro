@@ -13,14 +13,14 @@ const TabbedPanels = ({ data }) => {
         <div className={styles.tabbedPanels}>
             <div className="container mx-auto relative px-6 md:px-4">
                 <div className="flex justify-center">
-                    <div className="w-1/2 text-center">
+                    <div className="w-full md:w-1/2 text-center">
                         <LazyItem>
                             <h2>{heading}</h2>
                         </LazyItem>
                     </div>
                 </div>
                 <div className="flex justify-center mt-5">
-                    <div className="w-2/5 text-center">
+                    <div className="w-full md:w-2/5 text-center">
                         <LazyItem>
                             <div dangerouslySetInnerHTML={{ __html: copy }} />
                         </LazyItem>
@@ -28,7 +28,7 @@ const TabbedPanels = ({ data }) => {
                 </div>
                 {panels.length > 0 && (
                     <LazyItem>
-                        <div className="flex justify-center gap-10 flex-nowrap mt-15 overflow-x-auto">
+                        <div className="flex md:justify-center gap-10 flex-nowrap mt-15 overflow-x-auto whitespace-nowrap">
                             {panels.map((panel, index) => (
                                 <div 
                                     key={index} 
@@ -37,7 +37,7 @@ const TabbedPanels = ({ data }) => {
                                     role="button"
                                     tabIndex={0}
                                 >
-                                    <h3>{panel.navLabel}</h3>
+                                    <h3 className="text-xs/6!">{panel.navLabel}</h3>
                                 </div>
                             ))}
                         </div>

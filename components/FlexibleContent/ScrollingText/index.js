@@ -22,6 +22,9 @@ const ScrollingText = ({ data }) => {
         const blocksWrapper = blocksRef.current;
         
         if (!container || !blocksWrapper || !blocks?.length) return;
+
+        // Check if screen width is larger than md breakpoint (768px)
+        const isLargeScreen = window.innerWidth > 768;
     
         const ctx = gsap.context(() => {
             const blockElements = blocksWrapper.children;
@@ -30,27 +33,30 @@ const ScrollingText = ({ data }) => {
     
             gsap.set(blockElements, { y: 0 }); // Reset transforms
     
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: container,
-                    start: "center center",
-                    end: `+=${distance + 100}`,
-                    pin: true,
-                    scrub: 1,
-                    anticipatePin: 1,
-                    invalidateOnRefresh: true,
-                    markers: false, // set to true if you want to debug visually
-                }
-            });
+            // Only create timeline if on large screen
+            if (isLargeScreen) {
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: container,
+                        start: "center center",
+                        end: `+=${distance + 100}`,
+                        pin: true,
+                        scrub: 1,
+                        anticipatePin: 1,
+                        invalidateOnRefresh: true,
+                        markers: false,
+                    }
+                });
     
-            tl.to(blockElements, {
-                y: () => -distance,
-                stagger: {
-                    each: 0,
+                tl.to(blockElements, {
+                    y: () => -distance,
+                    stagger: {
+                        each: 0,
+                        ease: "none",
+                    },
                     ease: "none",
-                },
-                ease: "none",
-            });
+                });
+            }
     
             // Ensure ScrollTrigger recalculates after layout settles
             ScrollTrigger.refresh();
@@ -63,7 +69,7 @@ const ScrollingText = ({ data }) => {
     return (
         <div className={`${styles.scrollingText} bg-blue-04 text-white py-24 overflow-hidden lg:max-h-[50vh]`} ref={containerRef}>
             <div className='container mx-auto relative px-6 md:px-4'>
-                <div className="absolute top-0 left-0 w-full h-50 bg-blue-05 -translate-y-5 rounded-lg"></div>
+                <div className="hidden md:block absolute top-0 left-0 w-full h-50 bg-blue-05 -translate-y-5 rounded-lg"></div>
                 <div className="flex flex-col lg:flex-row gap-5 items-start relative z-10">
                     
                     {/* Heading Section */}

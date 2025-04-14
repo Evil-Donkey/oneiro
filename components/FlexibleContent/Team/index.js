@@ -22,10 +22,9 @@ const Team = ({ data }) => {
                                 className="cursor-pointer group"
                                 onClick={() => toggleBio(index)}
                             >
-                                <div className={`aspect-square flex flex-col justify-end bg-blend-soft-light bg-grey-01 bg-cover bg-center rounded-lg p-7 transition-all duration-300 ease-in-out hover:shadow-lg hover:bg-transparent ${openBio === index ? 'bg-transparent!' : ''}`}
-                                    style={{ backgroundImage: `url(${photo.mediaItemUrl})` }}
-                                >
-                                    <div>
+                                <div className={`aspect-square flex flex-col justify-end bg-grey-01 text-white rounded-lg p-7 transition-all duration-300 ease-in-out hover:shadow-lg relative overflow-hidden`}>
+                                    <div className="absolute top-0 left-0 w-full h-full duration-300 ease-in-out bg-cover bg-center hover:scale-110" style={{ backgroundImage: `url(${photo.mediaItemUrl})` }}></div>
+                                    <div className="relative z-10">
                                         <h2 className="text-xl!">{name}</h2>
                                         <p className="text-base!">{role}</p>
                                     </div>

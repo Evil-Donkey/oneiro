@@ -3,26 +3,39 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-const Navigation = ({ themeColor }) => {
+const Navigation = ({ lightTheme }) => {
     const pathname = usePathname()
 
+    const navigationItems = [
+        {
+            label: 'Home',
+            href: '/'
+        },
+        {
+            label: 'About us',
+            href: '/about'
+        },
+        {
+            label: 'Our solution',
+            href: '/solution'
+        },
+        {
+            label: 'Insights',
+            href: '/insights'
+        },
+        {
+            label: 'Contact',
+            href: '/contact'
+        }
+    ]
+
     return (
-        <ul className="flex items-center justify-center space-x-8 m-0!">
-            <li className={`text-xs uppercase tracking-wider font-semibold`} style={{color: `var(${themeColor})`}}>
-                <Link className={`${pathname === '/' ? 'text-blue-01!' : ''}`} href="/">Home</Link>
-            </li>
-            <li className={`text-xs uppercase tracking-wider font-semibold`} style={{color: `var(${themeColor})`}}>
-                <Link className={`${pathname === '/about' ? 'text-blue-01!' : ''}`} href="/about">About us</Link>
-            </li>
-            <li className={`text-xs uppercase tracking-wider font-semibold`} style={{color: `var(${themeColor})`}}>
-                <Link className={`${pathname === '/solution' ? 'text-blue-01!' : ''}`} href="/solution">Our solution</Link>
-            </li>
-            <li className={`text-xs uppercase tracking-wider font-semibold`} style={{color: `var(${themeColor})`}}>
-                <Link className={`${pathname === '/insights' ? 'text-blue-01!' : ''}`} href="/insights">Insights</Link>
-            </li>
-            <li className={`text-xs uppercase tracking-wider font-semibold`} style={{color: `var(${themeColor})`}}>
-                <Link className={`${pathname === '/contact' ? 'text-blue-01!' : ''}`} href="/contact">Contact</Link>
-            </li>
+        <ul className="flex flex-col lg:flex-row items-center justify-center lg:space-x-8 gap-4 lg:gap-0 m-0!">
+            {navigationItems.map((item, index) => (
+                <li key={index} className={`text-base lg:text-xs uppercase tracking-wider font-semibold ${lightTheme ? 'md:text-blue-02' : 'text-white'}`}>
+                    <Link className={`${pathname === item.href ? 'text-blue-01!' : ''}`} href={item.href}>{item.label}</Link>
+                </li>
+            ))}
         </ul>
     )
 }

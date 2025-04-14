@@ -26,6 +26,7 @@
 }
 
 @theme {
+  --background: #0F0D42;
   --color-white-00: #ffffff;
   --color-white-01: #f1f1f1;
   --color-grey-00:  #767676;

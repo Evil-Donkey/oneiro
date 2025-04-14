@@ -80,7 +80,7 @@ export default async function InsightsPostPage({ params }) {
   return (
     <>
       <LazyLoadInitializer />
-      <Header themeColor="--background" />
+      <Header lightTheme={true} />
       <div className={styles.insightsContainer}>
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center">
@@ -90,7 +90,7 @@ export default async function InsightsPostPage({ params }) {
               </div>
             )}
             {blogAuthor.name && (
-              <div className="w-full flex items-center flex-wrap gap-8 mb-8">
+              <div className="w-full flex items-center flex-nowrap gap-8 mb-8">
                 {blogAuthor.photo && (
                   <div className="aspect-square w-25 rounded-full overflow-hidden">
                     <Image src={blogAuthor.photo.mediaItemUrl} alt={blogAuthor.photo.altText} width={blogAuthor.photo.mediaDetails.width} height={blogAuthor.photo.mediaDetails.height} />

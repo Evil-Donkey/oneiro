@@ -62,7 +62,7 @@ const SingleColumn = ({ data, index }) => {
                         {heading1 && <h1 className={!largerHeading ? 'text-4xl!' : '-translate-x-1 translate-y-2'}><LazyItem><div dangerouslySetInnerHTML={{ __html: heading1 }} /></LazyItem></h1>}
                         {copy && <LazyItem><div className={`${list ? styles.copyWithList : ''} ${!centred ? styles.addPadding : ''}`} dangerouslySetInnerHTML={{ __html: copy }} /></LazyItem>}
                         {index === 0 && <div className='mt-4 md:hidden'><LazyItem><Button href="#request-demo">Request a demo</Button></LazyItem></div>}
-                        {ctaLabel && ctaUrl && <div className='mt-8 mb-10'><LazyItem><Button href={ctaUrl}>{ctaLabel}</Button></LazyItem></div>}
+                        {ctaLabel && ctaUrl && <div className='mt-8 mb-10 hidden md:block'><LazyItem><Button href={ctaUrl}>{ctaLabel}</Button></LazyItem></div>}
                     </div>
                 </div>
                 {list && (

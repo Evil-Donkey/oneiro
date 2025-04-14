@@ -42,7 +42,7 @@ export default async function ContactPage() {
     return (
         <>
             <LazyLoadInitializer />
-            <Header themeColor="--background" />
+            <Header lightTheme={true} />
 
             <div className={styles.contactContainer}>
                 <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between">
