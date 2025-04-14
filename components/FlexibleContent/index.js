@@ -5,6 +5,7 @@ import CentredCopy from "./CentredCopy";
 import TwoColumns from "./TwoColumns";
 import ThreeColumnsGrid from "./ThreeColumnsGrid";
 import FullWidthImage from "./FullWidthImage";
+import FullWidthVideo from "./FullWidthVideo";
 import SlidingBlocks from "./SlidingBlocks";
 import ScrollingText from "./ScrollingText";
 import Quote from "./Quote";
@@ -32,6 +33,9 @@ const PageFlexibleContent = ({ data }) => {
         }
         if (fieldGroupName === "Page_Flexiblecontent_FlexibleContent_FullWidthImage") {
             flexibleContentArray.push(<FullWidthImage data={data} key={i.toString()} />);
+        }
+        if (fieldGroupName === "Page_Flexiblecontent_FlexibleContent_FullWidthVideo") {
+            flexibleContentArray.push(<FullWidthVideo data={data} key={i.toString()} />);
         }
         if (fieldGroupName === "Page_Flexiblecontent_FlexibleContent_TwoColumns") {
             flexibleContentArray.push(<TwoColumns data={data} key={i.toString()} />);

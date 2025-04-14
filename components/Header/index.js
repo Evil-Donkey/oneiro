@@ -56,7 +56,7 @@ const Header = ({ lightTheme, hideNavigation }) => {
             <div className={`${styles.headerContainer} container mx-auto px-4`}>
                 <div className="flex items-center justify-between">
                     <div className={`${styles.logoContainer}`}>
-                        <Link href="/">
+                        <Link href="/homepage">
                             <Logo lightTheme={lightTheme} />
                         </Link>
                     </div>

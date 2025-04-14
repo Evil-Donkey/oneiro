@@ -9,7 +9,7 @@ const Navigation = ({ lightTheme }) => {
     const navigationItems = [
         {
             label: 'Home',
-            href: '/'
+            href: '/homepage'
         },
         {
             label: 'About us',

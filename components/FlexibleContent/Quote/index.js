@@ -20,7 +20,7 @@ const Quote = ({ data }) => {
                         </LazyItem>
                     </div>}
                     <div className="w-full lg:w-2/5">
-                        {heading && <h2 className="mb-5"><LazyItem>{heading}</LazyItem></h2>}
+                        {heading && <h2 className="mb-5"><LazyItem><div dangerouslySetInnerHTML={{ __html: heading }} /></LazyItem></h2>}
                         {copy && <LazyItem><div className="italic" dangerouslySetInnerHTML={{ __html: copy }} /></LazyItem>}
                     </div>
                 </div>
