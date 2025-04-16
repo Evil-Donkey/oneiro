@@ -10,7 +10,7 @@ const FullWidthVideo = ({ data }) => {
                 <div className="overflow-hidden rounded-lg">
                     <LazyItem>
                     <div className='aspect-video'>
-                        {mp4Video && <video className="w-full h-full object-cover" src={mp4Video.mediaItemUrl} controls />}
+                        {mp4Video && <video className="w-full h-full object-cover" src={`${mp4Video.mediaItemUrl}#t=0.1`} controls />}
                     </div>
                     </LazyItem>
                 </div>
