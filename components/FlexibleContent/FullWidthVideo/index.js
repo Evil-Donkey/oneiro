@@ -2,7 +2,7 @@
 import LazyItem from "../../LazyItem";
 
 const FullWidthVideo = ({ data }) => {
-    const { mp4Video, lightBackground } = data;
+    const { mp4Video, lightBackground, posterImage } = data;
 
     return (
         <div className={`${lightBackground ? `bg-white-01` : `bg-blue-02`} pb-20 md:py-20`}>
@@ -10,7 +10,7 @@ const FullWidthVideo = ({ data }) => {
                 <div className="overflow-hidden rounded-lg">
                     <LazyItem>
                     <div className='aspect-video'>
-                        {mp4Video && <video className="w-full h-full object-cover" src={`${mp4Video.mediaItemUrl}#t=0.1`} controls />}
+                        {mp4Video && <video className="w-full h-full object-cover" src={`${mp4Video.mediaItemUrl}${posterImage ? '' : '#t=0.1'}`} poster={posterImage ? posterImage.mediaItemUrl : undefined} controls />}
                     </div>
                     </LazyItem>
                 </div>
