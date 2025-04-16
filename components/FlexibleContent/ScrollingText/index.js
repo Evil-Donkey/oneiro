@@ -14,6 +14,8 @@ const ScrollingText = ({ data }) => {
         heading
     } = data;
 
+    const mainHeading = heading;
+
     const containerRef = useRef(null);
     const blocksRef = useRef(null);
 
@@ -73,7 +75,7 @@ const ScrollingText = ({ data }) => {
                 <div className="flex flex-col lg:flex-row gap-5 items-start relative z-10">
                     
                     {/* Heading Section */}
-                    <div className="w-auto">
+                    <div className="w-auto hidden lg:block">
                         <h2 className="text-blue-01">{heading}</h2>
                     </div>
 
@@ -84,6 +86,9 @@ const ScrollingText = ({ data }) => {
                                 const { heading, copy, icon } = item;
                                 return (
                                     <div key={index}>
+                                        <div className="w-full lg:hidden">
+                                            <h2 className="text-blue-01">{mainHeading}</h2>
+                                        </div>
                                         {heading && <h2 className="mb-2">{heading}</h2>}
                                         {copy && <div className="text-gray-300 lg:w-md" dangerouslySetInnerHTML={{ __html: copy }} />}
                                     </div>

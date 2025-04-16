@@ -1,10 +1,10 @@
 import LazyItem from "../../LazyItem";
 
 const CentredCopy = ({ data }) => {
-    const { copy, heading, lightBackground } = data;
+    const { copy, heading, lightBackground, removePaddingTop, removePaddingBottom } = data;
 
     return (
-        <div className={`${lightBackground ? `bg-white-01 text-blue-02` : `bg-blue-02 text-white-00`} py-20`}>
+        <div className={`${lightBackground ? `bg-white-01 text-blue-02` : `bg-blue-02 text-white-00`} ${removePaddingTop ? `pt-0` : `pt-10`} ${removePaddingBottom ? `pb-0` : `pb-10`} md:py-20`}>
             <div className="container mx-auto relative px-6 md:px-4">
                 <div className="flex justify-center">
                     <div className="w-full md:w-1/2 text-center">

@@ -57,11 +57,11 @@ const Header = ({ lightTheme, hideNavigation }) => {
                 <div className="flex items-center justify-between">
                     <div className={`${styles.logoContainer}`}>
                         <Link href="/homepage">
-                            <Logo lightTheme={lightTheme} />
+                            <Logo lightTheme={lightTheme} isMobileMenuOpen={isMobileMenuOpen} />
                         </Link>
                     </div>
-                    <div className={`${isMobileMenuOpen ? 'flex' : 'hidden lg:flex'} flex-col lg:flex-row items-center justify-center gap-5 absolute top-0 left-0 w-svw h-svh lg:h-auto lg:w-auto bg-blue-02 lg:bg-transparent lg:static`}>
-                        {!hideNavigation && <Navigation lightTheme={lightTheme} />}
+                    <div className={`transform transition-transform duration-300 ease-in-out lg:transform-none flex flex-col lg:flex-row items-center justify-center gap-5 absolute top-0 left-0 w-svw h-svh lg:h-auto lg:w-auto bg-blue-02 lg:bg-transparent lg:static ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
+                        {!hideNavigation && <Navigation lightTheme={lightTheme} isHeaderScrolled={isHeaderScrolled} />}
                         <div className={`text-right ${styles.buttonContainer}`}>
                             <Button href="#request-demo" onClick={toggleMobileMenu}>Request a demo</Button>
                         </div>

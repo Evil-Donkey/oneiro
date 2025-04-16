@@ -2,10 +2,10 @@ import Image from "next/image";
 import LazyItem from "../../LazyItem";
 
 const FullWidthImage = ({ data }) => {
-    const { image, mobileImage, lightBackground } = data;
+    const { image, mobileImage, lightBackground, removePaddingTop, removePaddingBottom } = data;
 
     return (
-        <div className={`${lightBackground ? `bg-white-01` : `bg-blue-02`} py-20`}>
+        <div className={`${lightBackground ? `bg-white-01` : `bg-blue-02`} ${removePaddingTop ? `pt-0` : `pt-20`} ${removePaddingBottom ? `pb-0` : `pb-20`} md:py-20`}>
             <div className="container mx-auto relative px-6 md:px-4 text-center">
                 <div className="overflow-hidden rounded-lg">
                     <LazyItem>

@@ -47,7 +47,7 @@ const TabbedPanels = ({ data }) => {
                                 return (
                                     <div 
                                         key={index}
-                                        className={`${styles.panel} p-5 md:p-10 rounded-lg overflow-hidden bg-cover bg-center d-flex flex-col ${activeTab === index ? styles.active : ''}`}
+                                        className={`${styles.panel} p-5 md:p-10 rounded-lg overflow-hidden bg-cover bg-center flex flex-col justify-between min-h-[700px] ${activeTab === index ? styles.active : ''}`}
                                         style={{ backgroundImage: `url(${backgroundImage.mediaItemUrl})` }}
                                     >
                                         <div className="flex flex-col gap-5 text-white">
@@ -63,7 +63,7 @@ const TabbedPanels = ({ data }) => {
                                             }
                                         </div>
                                         {boxCopy &&
-                                            <div className="w-full lg:w-1/3 mt-10 lg:mt-0 rounded-lg bg-white p-5 lg:justify-self-end">
+                                            <div className="w-full lg:w-1/3 mt-10 lg:mt-0 rounded-lg bg-white p-5 lg:justify-self-end self-end">
                                                 <div dangerouslySetInnerHTML={{ __html: boxCopy }} />
                                                 {ctaLabel &&
                                                     <Button href={ctaUrl} plain={true}>{ctaLabel}</Button>

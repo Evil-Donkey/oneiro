@@ -10,9 +10,10 @@
   --colour-black-00: #050420;
   --colour-blue-00: #08F3F9;
   --colour-blue-01: #008BFF;
-  --colour-blue-02: #0B0A36;
+  --colour-blue-02: #0B0B36;
   --colour-blue-03: #1F1D5B;
   --colour-blue-04: #161451;
+  --colour-blue-06: #0F0D42;
   
   --gradient-00: linear-gradient(266.81deg, #3B37E4 0%, #1EA2F0 50%, #3B37E4 100%);
   
@@ -36,10 +37,11 @@
   --color-black-00: #050420;
   --color-blue-00: #08F3F9;
   --color-blue-01: #008BFF;
-  --color-blue-02: #0B0A36;
+  --color-blue-02: #0B0B36;
   --color-blue-03: #1F1D5B;
   --color-blue-04: #0F0D42;
   --color-blue-05: #161451;
+  --color-blue-06: #0F0D42;
 }
 
 ::placeholder {
@@ -93,6 +95,7 @@ h2 {
 @media (max-width: 767px) {
   h2 {
     font-size: var(--font-size-h2-mobile);
+    line-height: 2.3rem;
   }
 }
 

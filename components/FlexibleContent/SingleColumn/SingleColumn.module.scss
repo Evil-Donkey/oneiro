@@ -9,6 +9,9 @@
     background-position: center;
     &.fullHeight {
         min-height: 100vh;
+        @media (max-width: 767px) {
+            padding-top: 150px;
+        }
     }
     &.darkBlue {
         h3 {

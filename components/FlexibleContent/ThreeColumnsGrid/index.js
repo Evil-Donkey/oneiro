@@ -27,7 +27,7 @@ const ThreeColumnsGrid = ({ data }) => {
                     </div>
                 }
                 {grid && 
-                    <div className={`mt-20 grid grid-cols-1 md:grid-cols-2 gap-x-20 ${twoColumns ? 'lg:gap-x-60' : 'lg:grid-cols-3'} gap-y-15`}>
+                    <div className={`md:mt-20 grid grid-cols-1 md:grid-cols-2 gap-x-20 ${twoColumns ? 'lg:gap-x-60' : 'lg:grid-cols-3'} gap-y-15`}>
                         {grid.map((item, index) => {
                             const { heading, copy, icon } = item;
                             return (
