@@ -3,12 +3,10 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import Button from "../Button";
-import useLazyLoad from "../../hooks/useLazyLoad";
 import LazyItem from "../LazyItem";
 import Link from "next/link";
 import styles from "./ContactForm.module.scss";
 const ContactForm = () => {
-    useLazyLoad();
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [success, setSuccess] = useState(false);
@@ -23,10 +21,10 @@ const ContactForm = () => {
 
         const formData = new FormData();
 
-        formData.append("_wpcf7", "55"); // Form ID
+        formData.append("_wpcf7", "168"); // Form ID
         formData.append("_wpcf7_version", "6.0.5"); // Change to your CF7 version
         formData.append("_wpcf7_locale", "en_UK"); // Update based on your language
-        formData.append("_wpcf7_unit_tag", "wpcf7-f55-p9-o1"); // Fake unit tag
+        formData.append("_wpcf7_unit_tag", "wpcf7-f168-p9-o1"); // Fake unit tag
         formData.append("_wpcf7_container_post", "9"); // Change based on your form's post ID
 
         formData.append("first-name", data.firstName);
@@ -34,10 +32,10 @@ const ContactForm = () => {
         formData.append("email", data.email);
         formData.append("company", data.company);
         formData.append("job-title", data.jobTitle);
-
+        formData.append("your-question", data.yourQuestion);
         try {
             const response = await fetch(
-            `${process.env.NEXT_PUBLIC_WORDPRESS_ENDPOINT}/wp-json/contact-form-7/v1/contact-forms/${process.env.NEXT_PUBLIC_CF7_FORM_ID}/feedback`,
+            `${process.env.NEXT_PUBLIC_WORDPRESS_ENDPOINT}/wp-json/contact-form-7/v1/contact-forms/${process.env.NEXT_PUBLIC_CF7_CONTACT_ID}/feedback`,
             {
                 method: "POST",
                 body: formData,
@@ -88,9 +86,15 @@ const ContactForm = () => {
                 <input type="text" {...register("jobTitle", { required: "Job title is required" })} placeholder="Job Title" />
                 {errors.jobTitle && <p>{errors.jobTitle.message}</p>}
             </div>
+            
+            <div className="w-full flex flex-col gap-2 mb-4 px-4">
+                <label htmlFor="yourQuestion">Your Question*</label>
+                <textarea type="text" rows="4" {...register("yourQuestion", { required: "Your question is required" })} placeholder="Your Question" />
+                {errors.yourQuestion && <p>{errors.yourQuestion.message}</p>}
+            </div>
 
             <div className="w-full flex flex-col gap-2 mb-4 px-4">
-                <label htmlFor="privacyPolicy" className={styles.privacyPolicy}>
+                <label htmlFor="privacyPolicy" className="bg-grey-02 p-4 rounded-sm">
                     <input type="checkbox" {...register("privacyPolicy", { required: "You must accept the Privacy Policy" })} />
                     <span>By submitting this form, I agree to the <Link href="/privacy-policy">Privacy Policy</Link> and consent to the collection, use, and storage of my information as described.</span>
                 </label>

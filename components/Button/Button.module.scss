@@ -12,6 +12,7 @@
     color: var(--colour-white-00);
     padding: 10px 20px;
     border-radius: 30px;
+    display: inline-block;
     font-size: 0.9375rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -23,7 +24,16 @@
     border: none;
     min-width: 170px;
     white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
     &:hover {
         animation: changeGradientAnimation 2s linear infinite;
+    }
+    &.plain {
+        background: var(--colour-blue-02);
+        &:hover {
+            background: var(--colour-blue-01);
+        }
     }
 }

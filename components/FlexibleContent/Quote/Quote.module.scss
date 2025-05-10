@@ -1,0 +1,21 @@
+.quote {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.quoteContent {
+    @media (max-width: 1023px) {
+        background-image: none !important;
+    }
+    @media (min-width: 1024px) {
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(277.71deg, #000000 3.5%, rgba(0, 0, 0, 0) 93.15%);
+        }
+    }
+}

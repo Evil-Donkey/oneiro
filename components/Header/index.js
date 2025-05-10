@@ -4,9 +4,11 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Logo from '../Logo'
 import Button from '../Button'
+import Navigation from '../Navigation'
+import { IconHamburger, IconClose } from '../Icons'
 import styles from './Header.module.scss'
 
-const Header = ({ themeColor = '--colour-white-00' }) => {
+const Header = ({ lightTheme, hideNavigation }) => {
 
     const [isScrollingUp, setIsScrollingUp] = useState(true);
     const [isHeaderScrolled, setIsHeaderScrolled] = useState(false);
@@ -43,18 +45,29 @@ const Header = ({ themeColor = '--colour-white-00' }) => {
         };
     }, [lastScrollTop, isMobileMenuOpen]);
 
+    const toggleMobileMenu = () => {
+        console.log('toggleMobileMenu');
+        setIsMobileMenuOpen(!isMobileMenuOpen);
+    }
+
     return (
-        <div className={`${styles.headerContainerWrapper} ${styles.fixedHeader} ${isScrollingUp ? '' : styles.headerHidden} ${isHeaderScrolled ? styles.headerScrolled : ''}`}>
+        <div className={`relative ${styles.headerContainerWrapper} ${styles.fixedHeader} ${isScrollingUp ? '' : styles.headerHidden} ${isHeaderScrolled ? styles.headerScrolled : ''}`}>
             <div className={`${styles.mobileMenuBackground} ${isMobileMenuOpen ? styles.mobileMenuBackgroundActive : ''}`} />
             <div className={`${styles.headerContainer} container mx-auto px-4`}>
                 <div className="flex items-center justify-between">
                     <div className={`${styles.logoContainer}`}>
-                        <Link href="/">
-                            <Logo themeColor={themeColor} />
+                        <Link href="/homepage">
+                            <Logo lightTheme={lightTheme} isMobileMenuOpen={isMobileMenuOpen} />
                         </Link>
                     </div>
-                    <div className={`text-right ${styles.buttonContainer}`}>
-                        <Button href="#request-demo">Request a demo</Button>
+                    <div className={`transform transition-transform duration-300 ease-in-out lg:transform-none flex flex-col lg:flex-row items-center justify-center gap-5 absolute top-0 left-0 w-svw h-svh lg:h-auto lg:w-auto bg-blue-02 lg:bg-transparent lg:static ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
+                        {!hideNavigation && <Navigation lightTheme={lightTheme} isHeaderScrolled={isHeaderScrolled} />}
+                        <div className={`text-right ${styles.buttonContainer}`}>
+                            <Button href="#request-demo" onClick={toggleMobileMenu}>Request a demo</Button>
+                        </div>
+                    </div>
+                    <div className={`${styles.mobileMenu} lg:hidden z-10`} onClick={toggleMobileMenu}>
+                        {!isMobileMenuOpen ? <IconHamburger lightTheme={lightTheme} /> : <IconClose />}
                     </div>
                 </div>
             </div>

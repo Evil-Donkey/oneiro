@@ -14,12 +14,12 @@ const Footer = ({ themeSettings }) => {
                     <div className="flex flex-col md:flex-row items-start md:items-center justify-between">
                         <div className="md:w-1/2">
                             <Link href="/">
-                                <Logo themeColor="#ffffff" />
+                                <Logo lightTheme={false} />
                             </Link>
 
                             <div className="mt-5 flex flex-col gap-4">
                                 {address && <div dangerouslySetInnerHTML={{ __html: address }} />}
-                                {email && <a href={`mailto:${email}`}>{email}</a>}
+                                {email && <a href={`mailto:${email}`} className="hover:underline" target="_blank">{email}</a>}
                             </div>
                         </div>
                         <div className="md:w-1/2 flex items-center justify-end mt-4 md:mt-0 gap-2">

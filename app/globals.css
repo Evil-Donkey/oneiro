@@ -6,19 +6,42 @@
   --colour-white-00: #ffffff;
   --colour-white-01: #f1f1f1;
   --colour-grey-00:  #767676;
+  --colour-grey-01:  #BFBFBF;
   --colour-black-00: #050420;
   --colour-blue-00: #08F3F9;
   --colour-blue-01: #008BFF;
-  --colour-blue-02: #0C0B2E;
+  --colour-blue-02: #0B0B36;
   --colour-blue-03: #1F1D5B;
+  --colour-blue-04: #161451;
+  --colour-blue-06: #0F0D42;
   
   --gradient-00: linear-gradient(266.81deg, #3B37E4 0%, #1EA2F0 50%, #3B37E4 100%);
   
   --font-size-p: 1rem;
   --font-size-h1: 3.875rem;
   --font-size-h1-mobile: 2.1rem;
-  --font-size-h2: 0.75rem;
-  --font-size-h2-mobile: 0.65rem;
+  --font-size-h2: 2.5rem;
+  --font-size-h2-mobile: 1.5rem;
+  --font-size-h3: 0.75rem;
+  --font-size-h3-mobile: 0.65rem;
+}
+
+@theme {
+  --background: #0F0D42;
+  --color-white-00: #ffffff;
+  --color-white-01: #f1f1f1;
+  --color-grey-00:  #767676;
+  --color-grey-01:  #BFBFBF;
+  --color-grey-02:  #DADADA;
+  --color-grey-03:  #E7E7E7;
+  --color-black-00: #050420;
+  --color-blue-00: #08F3F9;
+  --color-blue-01: #008BFF;
+  --color-blue-02: #0B0B36;
+  --color-blue-03: #1F1D5B;
+  --color-blue-04: #0F0D42;
+  --color-blue-05: #161451;
+  --color-blue-06: #0F0D42;
 }
 
 ::placeholder {
@@ -56,7 +79,9 @@ h1 {
   letter-spacing: 0.03125rem;
   margin-bottom: 1.5rem;
   font-family: var(--font-duru-sans);
-  @media (max-width: 767px) {
+}
+@media (max-width: 767px) {
+  h1 {
     font-size: var(--font-size-h1-mobile);
     line-height: 2.6rem;
   }
@@ -64,13 +89,27 @@ h1 {
 
 h2 {
   font-size: var(--font-size-h2);
+  line-height: 3.125rem;
+  font-family: var(--font-duru-sans);
+}
+@media (max-width: 767px) {
+  h2 {
+    font-size: var(--font-size-h2-mobile);
+    line-height: 2.3rem;
+  }
+}
+
+h3 {
+  font-size: var(--font-size-h3);
   font-weight: 600;
   line-height: 1.75rem;
   letter-spacing: 0.075rem;
   text-transform: uppercase;
   font-family: var(--font-duru-sans);
-  @media (max-width: 767px) {
-    font-size: var(--font-size-h2-mobile);
+}
+@media (max-width: 767px) {
+  h3 {
+    font-size: var(--font-size-h3-mobile);
   }
 }
 
