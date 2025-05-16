@@ -9,5 +9,5 @@ export async function generateMetadata() {
 
 export default async function AboutPage() {
   const flexibleContent = await getFlexiblePage("174");
-  return <FlexiblePage lightTheme={true} flexibleContent={flexibleContent} className={styles.aboutContainer} />;
+  return <FlexiblePage lightTheme={false} textWhite={true} flexibleContent={flexibleContent} className={styles.aboutContainer} />;
 }

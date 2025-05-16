@@ -6,7 +6,8 @@ import Image from "next/image";
 import LazyItem from "../../LazyItem";
 import Shine from "@/components/Shine";
 import Button from "@/components/Button";
-const SingleColumn = ({ data, index }) => {
+
+const SingleColumn = ({ data, index, textWhite }) => {
     const singleColumnRef = useRef(null);
 
     const { 
@@ -59,7 +60,7 @@ const SingleColumn = ({ data, index }) => {
                             </LazyItem>
                         </div>}
                         {heading2 && <h3><LazyItem>{heading2}</LazyItem></h3>}
-                        {heading1 && <h1 className={!largerHeading ? 'text-4xl!' : '-translate-x-1 translate-y-2'}><LazyItem><div dangerouslySetInnerHTML={{ __html: heading1 }} /></LazyItem></h1>}
+                        {heading1 && <h1 className={`${textWhite ? 'text-white' : ''} ${!largerHeading ? 'text-4xl!' : '-translate-x-1 translate-y-2'}`}><LazyItem><div dangerouslySetInnerHTML={{ __html: heading1 }} /></LazyItem></h1>}
                         {copy && <LazyItem><div className={`${list ? styles.copyWithList : ''} ${!centred ? styles.addPadding : ''}`} dangerouslySetInnerHTML={{ __html: copy }} /></LazyItem>}
                         {index === 0 && <div className='mt-4 md:hidden'><LazyItem><Button href="#request-demo">Request a demo</Button></LazyItem></div>}
                         {ctaLabel && ctaUrl && <div className='mt-8 mb-10 hidden md:block'><LazyItem><Button href={ctaUrl}>{ctaLabel}</Button></LazyItem></div>}
@@ -68,9 +69,9 @@ const SingleColumn = ({ data, index }) => {
                 {list && (
                     <div className="mt-5">
                         <div className="lg:w-3/4">
-                            <ul className={`grid md:grid-cols-2 gap-y-4 list-none p-0 ${styles.singleColumnList}`}>
+                            <ul className={`grid md:grid-cols-2 gap-y-4 list-none! p-0 ${styles.singleColumnList}`}>
                                 {list.map((item, index) => (
-                                    <li key={index.toString()} className={`${styles.singleColumnListItem}`}>
+                                    <li key={index.toString()}>
                                         <LazyItem>
                                             <h3>{item.heading}</h3>
                                             <div dangerouslySetInnerHTML={{ __html: item.copy }} />

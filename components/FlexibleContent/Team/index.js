@@ -12,7 +12,7 @@ const Team = ({ data }) => {
     };
 
     return (
-        <div className='container mx-auto relative px-6 md:px-4'>
+        <div className='container mx-auto relative px-6 md:px-4' id="team">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:grid-cols-3">
                 {team.map((item, index) => {
                     const { name, role, photo, bio } = item;

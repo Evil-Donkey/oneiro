@@ -10,8 +10,9 @@ import SlidingBlocks from "./SlidingBlocks";
 import ScrollingText from "./ScrollingText";
 import Quote from "./Quote";
 import Team from "./Team";
+import Testimonial from "./Testimonial";
 
-const PageFlexibleContent = ({ data }) => {
+const PageFlexibleContent = ({ data, textWhite }) => {
 
     let flexibleContentArray = [];
 
@@ -20,7 +21,7 @@ const PageFlexibleContent = ({ data }) => {
         const { fieldGroupName } = data;
 
         if (fieldGroupName === "Page_Flexiblecontent_FlexibleContent_SingleColumn") {
-            flexibleContentArray.push(<SingleColumn data={data} index={i} key={i.toString()} />);
+            flexibleContentArray.push(<SingleColumn data={data} index={i} key={i.toString()} textWhite={textWhite} />);
         }
         if (fieldGroupName === "Page_Flexiblecontent_FlexibleContent_RequestADemo") {
             flexibleContentArray.push(<RequestDemo data={data} key={i.toString()} />);
@@ -54,6 +55,9 @@ const PageFlexibleContent = ({ data }) => {
         }
         if (fieldGroupName === "Page_Flexiblecontent_FlexibleContent_Team") {
             flexibleContentArray.push(<Team data={data} key={i.toString()} />);
+        }
+        if (fieldGroupName === "Page_Flexiblecontent_FlexibleContent_Testimonial") {
+            flexibleContentArray.push(<Testimonial data={data} key={i.toString()} />);
         }
     })}
 

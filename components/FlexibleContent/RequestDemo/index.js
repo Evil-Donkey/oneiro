@@ -6,7 +6,7 @@ import styles from "./RequestDemo.module.scss";
 
 const RequestDemo = ({ data }) => {
 
-    let heading1 = data?.heading1 ? data?.heading1 : 'See DLX in Action';
+    let heading1 = data?.heading1 ? data?.heading1 : 'See DLX in action';
     let heading2 = data?.heading2 ? data?.heading2 : 'Request a Demo';
     let copy = data?.copy ? data?.copy : '<p>Complete the form below, and one of our experts will be in touch to arrange your personalised demo.</p>';
 

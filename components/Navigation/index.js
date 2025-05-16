@@ -16,8 +16,8 @@ const Navigation = ({ lightTheme, isHeaderScrolled }) => {
             href: '/about'
         },
         {
-            label: 'Our solution',
-            href: '/solution'
+            label: 'Our solutions',
+            href: '/solutions'
         },
         {
             label: 'Insights',
@@ -29,11 +29,8 @@ const Navigation = ({ lightTheme, isHeaderScrolled }) => {
         }
     ]
 
-    console.log(lightTheme);
-    console.log(isHeaderScrolled);
-
     return (
-        <ul className="flex flex-col lg:flex-row items-center justify-center lg:space-x-8 gap-4 lg:gap-0 m-0!">
+        <ul className="flex flex-col lg:flex-row items-center justify-center lg:space-x-8 gap-4 lg:gap-0 m-0! list-none!">
             {navigationItems.map((item, index) => (
                 <li key={index} className={`text-base lg:text-xs uppercase tracking-wider font-semibold ${lightTheme && !isHeaderScrolled ? 'text-white md:text-blue-02' : 'text-white'}`}>
                     <Link className={`${pathname === item.href ? 'text-blue-01!' : ''}`} href={item.href}>{item.label}</Link>
