@@ -1,6 +1,6 @@
 .tabbedPanels {
     background-color: var(--colour-white-01);
-    background-image: url('/bg-1.png');
+    background-image: url('/bg-2.jpg');
     background-size: 100% auto;
     background-position: center top;
     background-repeat: no-repeat;
@@ -17,7 +17,7 @@
 
         &.active {
             border-bottom-color: currentColor;
-            color: var(--colour-blue-02);
+            color: var(--colour-white-00);
         }
     }
 

@@ -15,7 +15,7 @@ const TabbedPanels = ({ data }) => {
             <div className="container mx-auto relative px-6 md:px-4">
                 {heading &&
                     <div className="flex justify-center">
-                        <div className="w-full md:w-1/2 text-center">
+                        <div className="w-full md:w-1/2 text-center text-white">
                             <LazyItem>
                                 <h2>{heading}</h2>
                             </LazyItem>
@@ -23,7 +23,7 @@ const TabbedPanels = ({ data }) => {
                     </div>
                 }
                 {copy &&
-                    <div className="flex justify-center mt-5">
+                    <div className="flex justify-center mt-5 text-white">
                         <div className="w-full md:w-2/5 text-center">
                             <LazyItem>
                                 <div dangerouslySetInnerHTML={{ __html: copy }} />
@@ -42,7 +42,7 @@ const TabbedPanels = ({ data }) => {
                                     role="button"
                                     tabIndex={0}
                                 >
-                                    <h3 className="text-xs/6!">{panel.navLabel}</h3>
+                                    <h3 className="text-xs/6! text-white">{panel.navLabel}</h3>
                                 </div>
                             ))}
                         </div>
