@@ -21,8 +21,8 @@ const Navigation = ({ lightTheme, isHeaderScrolled }) => {
             label: 'Our solutions',
             href: '/solutions',
             dropdown: [
-                { label: 'DLX', href: '/solutions/dlx' },
-                { label: 'Products, models & features', href: '/solutions/products' }
+                { label: 'DLX', href: '/solutions' },
+                { label: 'Products, models & features', href: '/products' }
             ]
         },
         {
@@ -44,7 +44,11 @@ const Navigation = ({ lightTheme, isHeaderScrolled }) => {
                     onMouseEnter={() => item.dropdown && setIsSolutionsHovered(true)}
                     onMouseLeave={() => item.dropdown && setIsSolutionsHovered(false)}
                 >
-                    <Link className={`${pathname === item.href ? 'text-blue-01!' : ''}`} href={item.href}>{item.label}</Link>
+                    {item.dropdown ? (
+                        <span className={`${pathname === item.href ? 'text-blue-01!' : ''} cursor-pointer`}>{item.label}</span>
+                    ) : (
+                        <Link className={`${pathname === item.href ? 'text-blue-01!' : ''}`} href={item.href}>{item.label}</Link>
+                    )}
                     {item.dropdown && isSolutionsHovered && (
                         <>
                             <div className="absolute top-full left-0 w-full h-[21px] bg-transparent" />
