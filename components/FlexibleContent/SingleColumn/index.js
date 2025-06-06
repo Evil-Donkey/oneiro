@@ -11,6 +11,7 @@ const SingleColumn = ({ data, index, textWhite }) => {
     const singleColumnRef = useRef(null);
 
     const { 
+        backgroundColour,
         backgroundVideoDesktop, 
         backgroundImage,
         backgroundImageTopRight,
@@ -33,7 +34,7 @@ const SingleColumn = ({ data, index, textWhite }) => {
         <div 
         ref={singleColumnRef}
         className={`${styles.singleColumn} ${fullHeight ? styles.fullHeight : ''} ${darkBlue ? styles.darkBlue : ''} ${backgroundImageTopRight ? styles.backgroundImageTopRight : ''} ${styles.singleColumn + index}`} 
-        style={{ backgroundImage: backgroundImage ? `url(${backgroundImage.mediaItemUrl})` : 'none' }}
+        style={{ backgroundImage: backgroundImage ? `url(${backgroundImage.mediaItemUrl})` : 'none', backgroundColor: backgroundColour ? backgroundColour : 'none' }}
         >
             {(backgroundVideoDesktop || backgroundVideoMobile) && (
                 <div className={styles.backgroundVideo}>
