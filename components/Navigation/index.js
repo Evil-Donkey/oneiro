@@ -21,8 +21,8 @@ const Navigation = ({ lightTheme, isHeaderScrolled }) => {
             label: 'Our solutions',
             href: '/solutions',
             dropdown: [
-                { label: 'DLX', href: '/solutions' },
-                { label: 'Products, models & features', href: '/products' }
+                { label: 'DLX Overview', href: '/solutions' },
+                { label: 'DLX Features', href: '/products' }
             ]
         },
         {
