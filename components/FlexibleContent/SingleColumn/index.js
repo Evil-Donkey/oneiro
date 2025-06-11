@@ -27,13 +27,14 @@ const SingleColumn = ({ data, index, textWhite }) => {
         hideShine,
         largerHeading,
         icon,
+        invertTextImage,
         list 
     } = data;
 
     return (
         <div 
         ref={singleColumnRef}
-        className={`${styles.singleColumn} ${fullHeight ? styles.fullHeight : ''} ${darkBlue ? styles.darkBlue : ''} ${backgroundImageTopRight ? styles.backgroundImageTopRight : ''} ${styles.singleColumn + index}`} 
+        className={`${styles.singleColumn} ${fullHeight ? styles.fullHeight : ''} ${darkBlue ? styles.darkBlue : ''} ${backgroundImageTopRight ? styles.backgroundImageTopRight : ''} ${invertTextImage ? styles.invertTextImage : ''} ${styles.singleColumn + index}`} 
         style={{ backgroundImage: backgroundImage ? `url(${backgroundImage.mediaItemUrl})` : 'none', backgroundColor: backgroundColour ? backgroundColour : 'none' }}
         >
             {(backgroundVideoDesktop || backgroundVideoMobile) && (
@@ -44,8 +45,8 @@ const SingleColumn = ({ data, index, textWhite }) => {
             )}
             
             <div className='container mx-auto relative px-6 md:px-4'>
-                <div className={`flex flex-col md:flex-row ${centred ? 'justify-center text-center ' + styles.singleColumnCentred : ''}`}>
-                    <div className={`md:w-3/4 lg:w-7/12 ${!centred ? ' xl:pr-5' : ''}`}>
+                <div className={`flex flex-col md:flex-row ${centred ? 'justify-center text-center ' + styles.singleColumnCentred : ''} ${invertTextImage ? 'justify-end' : ''}`}>
+                    <div className={`md:w-3/4 lg:w-7/12 ${!centred && !invertTextImage ? ' xl:pr-5' : ''} ${invertTextImage ? 'xl:pl-35' : ''}`}>
 
                         {backgroundImageTopRight && backgroundImage && 
                             <div className='md:hidden'>
@@ -62,7 +63,7 @@ const SingleColumn = ({ data, index, textWhite }) => {
                         </div>}
                         {heading2 && <h3><LazyItem>{heading2}</LazyItem></h3>}
                         {heading1 && <h1 className={`${textWhite ? 'text-white' : ''} ${!largerHeading ? 'text-4xl!' : '-translate-x-1 translate-y-2'}`}><LazyItem><div dangerouslySetInnerHTML={{ __html: heading1 }} /></LazyItem></h1>}
-                        {copy && <LazyItem><div className={`${list ? styles.copyWithList : ''} ${!centred ? styles.addPadding : ''}`} dangerouslySetInnerHTML={{ __html: copy }} /></LazyItem>}
+                        {copy && <LazyItem><div className={`${list ? styles.copyWithList : ''} ${!centred && !invertTextImage ? styles.addPadding : ''}`} dangerouslySetInnerHTML={{ __html: copy }} /></LazyItem>}
                         {index === 0 && <div className='mt-4 md:hidden'><LazyItem><Button href="#request-demo">Request a demo</Button></LazyItem></div>}
                         {ctaLabel && ctaUrl && <div className='mt-8 mb-10 hidden md:block'><LazyItem><Button href={ctaUrl}>{ctaLabel}</Button></LazyItem></div>}
                     </div>

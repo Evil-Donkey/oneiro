@@ -1,6 +1,7 @@
 import styles from "./TwoColumns.module.scss";
 import Image from "next/image";
 import LazyItem from "../../LazyItem";
+import Button from "../../Button";
 
 const TwoColumns = ({ data }) => {
 
@@ -11,7 +12,9 @@ const TwoColumns = ({ data }) => {
         imageFirst,
         heading1, 
         heading2,
-        whiteOnBlue
+        whiteOnBlue,
+        ctaLabel,
+        ctaLink
     } = data;
 
     return (
@@ -31,6 +34,32 @@ const TwoColumns = ({ data }) => {
                             </LazyItem>
                         </div>}
                         {copy && <LazyItem><div className={`${whiteOnBlue ? 'text-white' : ''}`} dangerouslySetInnerHTML={{ __html: copy }} /></LazyItem>}
+                        {ctaLabel && ctaLink && (
+                            <div className='mt-8'>
+                                <LazyItem>
+                                    <Button 
+                                        href={ctaLink} 
+                                        onClick={(e) => {
+                                            if (ctaLink.startsWith('#')) {
+                                                e.preventDefault();
+                                                const targetElement = document.querySelector(ctaLink);
+                                                if (targetElement) {
+                                                    const offset = 200;
+                                                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                                                    const offsetPosition = elementPosition - offset;
+                                                    window.scrollTo({
+                                                        top: offsetPosition,
+                                                        behavior: 'smooth'
+                                                    });
+                                                }
+                                            }
+                                        }}
+                                    >
+                                        {ctaLabel}
+                                    </Button>
+                                </LazyItem>
+                            </div>
+                        )}
                     </div>
                     {image && <div className={`hidden lg:block w-full lg:w-1/2 order-first mb-10 lg:mb-0 ${imageFirst ? 'lg:order-first lg:pr-15' : 'lg:order-last lg:pl-15'}`}>
                         <LazyItem>

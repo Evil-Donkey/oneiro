@@ -28,6 +28,9 @@
         @media screen and (min-width: 1700px) {
             background-size: 50% auto;
         }
+        &.invertTextImage {
+            background-position: top left;
+        }
     }
     // h1 {
     //     @media (min-width: 768px) {
