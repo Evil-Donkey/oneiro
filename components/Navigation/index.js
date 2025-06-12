@@ -11,7 +11,7 @@ const Navigation = ({ lightTheme, isHeaderScrolled }) => {
     const navigationItems = [
         {
             label: 'Home',
-            href: '/homepage'
+            href: '/'
         },
         {
             label: 'About us',

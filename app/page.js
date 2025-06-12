@@ -8,5 +8,5 @@ export async function generateMetadata() {
 
 export default async function HomePage() {
   const flexibleContent = await getFlexiblePage("9");
-  return <FlexiblePage flexibleContent={flexibleContent} hideNavigation={true} />;
+  return <FlexiblePage flexibleContent={flexibleContent} hideNavigation={false} />;
 }

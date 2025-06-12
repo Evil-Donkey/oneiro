@@ -46,7 +46,6 @@ const Header = ({ lightTheme, hideNavigation }) => {
     }, [lastScrollTop, isMobileMenuOpen]);
 
     const toggleMobileMenu = () => {
-        console.log('toggleMobileMenu');
         setIsMobileMenuOpen(!isMobileMenuOpen);
     }
 
@@ -56,7 +55,7 @@ const Header = ({ lightTheme, hideNavigation }) => {
             <div className={`${styles.headerContainer} container mx-auto px-4`}>
                 <div className="flex items-center justify-between">
                     <div className={`${styles.logoContainer}`}>
-                        <Link href="/homepage">
+                        <Link href="/">
                             <Logo lightTheme={lightTheme} isMobileMenuOpen={isMobileMenuOpen} />
                         </Link>
                     </div>
