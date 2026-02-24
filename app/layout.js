@@ -19,7 +19,7 @@ const duruSans = Duru_Sans({
 
 export const metadata = {
   title: {
-    template: '%s | Oneiro Solutions',
+    template: '%s',
     default: 'Oneiro Solutions',
   },
 }
