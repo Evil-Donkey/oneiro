@@ -18,7 +18,6 @@ const useLazyLoad = () => {
       if (hash) {
         const targetElement = document.querySelector(hash);
         if (targetElement) {
-          // Find all lazy items within the target section
           const sectionLazyItems = targetElement.querySelectorAll('.lazy__item');
           if (sectionLazyItems.length > 0) {
             gsap.fromTo(
@@ -27,8 +26,8 @@ const useLazyLoad = () => {
               {
                 opacity: 1,
                 y: 0,
-                duration: 1,
-                stagger: { each: 0.2 },
+                duration: 0.6,
+                stagger: { amount: 0.3 },
                 overwrite: true,
               }
             );
@@ -43,9 +42,9 @@ const useLazyLoad = () => {
     // Set up scroll trigger for lazy loading
     ScrollTrigger.batch(".lazy__item", {
       id: "lazy-load",
-      start: "top 80%",
+      interval: 0.1,
+      start: "top 85%",
       onEnter: batch => {
-        // Skip elements that are already visible
         const unloadedElements = Array.from(batch).filter(
           el => getComputedStyle(el).opacity === "0"
         );
@@ -57,8 +56,8 @@ const useLazyLoad = () => {
             {
               opacity: 1,
               y: 0,
-              duration: 1,
-              stagger: { each: 0.2 },
+              duration: 0.6,
+              stagger: { amount: 0.3 },
               overwrite: true,
             }
           );
